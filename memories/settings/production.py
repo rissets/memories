@@ -6,7 +6,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memoriesrisset.herokuapp.com', 'memories.risset.me' ]
 
-# PRODUCTION_APPS = ['whitenoise.runserver_nostatic']
+PRODUCTION_APPS = ['whitenoise.runserver_nostatic']
 
 DEVELOPMENT_MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
