@@ -1,8 +1,10 @@
 from .base import *
 import django_heroku
 import dj_database_url
+from decouple import config
+
 django_heroku.settings(locals())
-DEBUG = False
+DEBUG = config('DEBUG_VALUE')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memoriesrisset.herokuapp.com', 'memories.risset.me' ]
 
@@ -12,7 +14,7 @@ DEVELOPMENT_MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
