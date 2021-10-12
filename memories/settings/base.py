@@ -48,19 +48,16 @@ THIRD_PARTY_APPS = [
     'meta',
     'modeltranslation',
     #   'captcha'
-
-    # deploy
-    # 'whitenoise.runserver_nostatic',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + MY_APPS + THIRD_PARTY_APPS
+PRODUCTION_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + MY_APPS + THIRD_PARTY_APPS + PRODUCTION_APPS
 
 SITE_ID = 1
 
 BUILT_IN_MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,9 +67,6 @@ BUILT_IN_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-
-    # deploy
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 THIRD_PARTY_MIDDLEWARE = []
@@ -165,17 +159,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -186,7 +169,6 @@ STATICFILES_FINDERS = (
 # COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
 COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
-
 
 
 # STORAGES
@@ -298,5 +280,3 @@ META_DEFAULT_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
 META_SITE_DOMAIN = 'localhost'
 META_USE_SITES = False
 
-import django_heroku
-django_heroku.settings(locals())
