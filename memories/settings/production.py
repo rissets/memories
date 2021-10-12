@@ -4,7 +4,7 @@ import dj_database_url
 from decouple import config
 
 django_heroku.settings(locals())
-DEBUG = config('DEBUG_VALUE')
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memories-risset.herokuapp.com', 'memories.risset.me' ]
 
