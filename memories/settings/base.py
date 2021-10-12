@@ -286,3 +286,6 @@ META_INCLUDE_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
 META_DEFAULT_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
 META_SITE_DOMAIN = 'localhost'
 META_USE_SITES = False
+
+import django_heroku
+django_heroku.settings(locals())
