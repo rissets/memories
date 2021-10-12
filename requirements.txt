@@ -38,7 +38,7 @@ requests==2.26.0
 rjsmin==1.1.0
 six==1.16.0
 sorl-thumbnail==12.7.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 stone==3.2.1
 surlex==0.2.0
 toml==0.10.2
