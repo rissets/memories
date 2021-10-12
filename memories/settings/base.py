@@ -274,7 +274,7 @@ RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
 
 
 # META
-META_SITE_PROTOCOL = 'http'
+META_SITE_PROTOCOL = 'https'
 META_INCLUDE_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
 META_DEFAULT_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
 META_SITE_DOMAIN = 'localhost'
