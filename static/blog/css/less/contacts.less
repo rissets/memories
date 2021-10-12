@@ -1,0 +1,40 @@
+// out: ../contacts.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.contact-section {
+    .form-fields {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .input-wrap {
+        width: 48.5%;
+        margin-right: 0;
+    }
+    
+    .textarea-wrap {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .btn {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .contact-section .input-wrap {
+        width: 100%;
+    }
+    
+    .contact-section .textarea-wrap {
+        margin-top: 0;
+    }
+}

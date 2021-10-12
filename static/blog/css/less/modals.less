@@ -1,0 +1,289 @@
+// out: ../modals.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.modal {
+    width: 460px;
+    position: relative;
+    
+    .title {
+        margin-bottom: 15px;
+    }
+    
+    .subtitle {
+        margin-bottom: 22px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+    
+    &-form {
+        float: left;
+        margin-top: 5px;
+    }
+    
+    &_wrap {
+        float: left;
+        background: #fff;
+        border-radius: 13px;
+        padding: 44px 48px;
+    }
+    
+    .input-wrap {
+        margin-right: 0;
+        margin-bottom: 17px;
+    }
+    
+    .input {
+        background: @light-child;
+        border-color: @light-child;
+    }
+    
+    .agreement {
+        margin-top: 0;
+        margin-bottom: 17px;
+    }
+    
+    .footnote {
+        color: #8E8E8E;
+        text-align: center;
+        line-height: 24px;
+        margin-top: 20px;
+        
+        a {
+            color: #fff;
+        }
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    &-info {
+        float: left;
+        border-top: 1px solid #DCDEE1;
+        margin-top: 36px;
+        padding-top: 40px;
+        text-align: center;
+        line-height: 1.4;
+        
+        p {
+            margin: 5px 0;
+            
+            &:first-child {
+                margin-top: 0;
+            }
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        a {
+            color: @theme-color;
+            display: inline-block;
+        }
+    }
+    
+    &_close {
+        background: rgba(255, 255, 255, .17);
+        border-radius: 50%;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: -32px;
+        right: -32px;
+        .pointer;
+        
+        &:before {
+            width: 12px;
+            height: 12px;
+            background: url(../img/close.svg) center center no-repeat;
+            background-size: contain;
+            position: absolute;
+            content: '';
+            left: 50%;
+            top: 50%;
+            margin-top: -6px;
+            margin-left: -6px;
+        }
+    }
+    
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    
+    &.modal_order {
+        width: 744px;
+        
+        .input-wrap {
+            width: 48%;
+        }
+        
+        .modal-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+}
+
+.success-icon {
+    width: 58px;
+    height: 58px;
+    background: #E1F0FF;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    position: relative;
+    
+    &:before {
+        width: 24px;
+        height: 24px;
+        background: url(../img/check-list-before.svg) center center no-repeat;
+        background-size: contain;
+        position: absolute;
+        content: '';
+        margin-top: -12px;
+        margin-left: -12px;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+.authorization-socials {
+    float: left;
+    margin-top: 36px;
+    
+    ._title {
+        font-size: 19px;
+        .Medium;
+        margin-bottom: 20px;
+    }
+}
+
+.authorization-socials-variants {
+    display: flex;
+    justify-content: center;
+    
+    .soc-link {
+        width: 38px;
+        height: 38px;
+        margin-right: 15px;
+        .pointer;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+        
+        &.active {
+            background: @theme-color;
+            
+            &:hover {
+                background: @dark-parent;
+            }
+        }
+        
+        
+    }
+}
+
+.arcticmodal-overlay {
+    background: rgba(0,0,0, .8);
+}
+
+.dark {
+    .modal_wrap {
+        background: @dark-child;
+    }
+    
+    .modal .input {
+        background: #222;
+        border-color: #222;
+    }
+    
+    .modal .input-wrap {
+        &.active {
+            label {
+                background: @dark-child;
+            }
+            
+            .input {
+                background: none;
+            }
+        }
+    }
+    
+    .modal {
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0px 1000px @dark-child inset;
+          transition: background-color 5000s ease-in-out 0s;
+            -webkit-text-fill-color: white;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .modal_close {
+        top: 0;
+        right: -43px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .modal.modal_order {
+        width: 100%;
+    }
+    
+    .modal.modal_order .input-wrap {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .modal {
+        width: 100%;
+    }
+    
+    .modal_wrap {
+        padding: 40px 20px;
+    }
+    
+    .modal_close {
+        right: 10px;
+        top: 10px;
+        background: rgba(0,0,0, .77);
+    }
+    
+    .authorization-socials {
+        margin-top: 28px;
+    }
+    
+    .modal-info {
+        margin-top: 28px;
+    }
+    
+    .modal-info {
+        padding-top: 30px;
+    }
+}

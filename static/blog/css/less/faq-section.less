@@ -1,0 +1,71 @@
+// out: ../faq-section.css, compress: false
+
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.faq-section {
+    .block100;
+    
+    .wrap_float {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .section-left {
+        max-width: 464px;
+    }
+    
+    .section-right {
+        max-width: 658px;
+    }
+    
+    .accordion-block {
+        margin: 0;
+        
+        .accordion-item:first-child .accordion-item-title {
+            padding-top: 0;
+        }
+        
+        .accordion-item:last-child{
+            border-bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .faq-section .section-left {
+        max-width: 440px;
+    }
+    
+    .faq-section .section-right {
+        max-width: 480px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .faq-section .wrap_float {
+        flex-direction: column;
+    }
+    
+    .faq-section .section-left {
+        margin-bottom: 30px;
+    }
+    
+    .faq-section .section-left,
+    .faq-section .section-right {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .faq-section .section-left {
+        .subtitle {
+            margin-bottom: 20px;
+        }
+    }
+}

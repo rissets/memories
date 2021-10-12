@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}{% load i18n %}
+
+{% block title %}{% trans "Newsletter" %}{% endblock title %}
+{% block header %}
+{% endblock header %}
+
+{% block contents %}
+<div class="page-wrap">
+    <div class="page-wrap-content">
+        <div class="breadcrumbs">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    {% block breadcrumbs %}
+                        
+                    {% endblock breadcrumbs %}
+                </div>
+            </div>
+        </div>
+        <div class="post-single-wrap sticky-parent">
+            <div class="single-content wp-content">
+                <div class="wrap wrap-center">
+                    <div class="wrap_float">
+                    {% block body %}{% endblock body %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contents %}

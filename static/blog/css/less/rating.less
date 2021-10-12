@@ -1,0 +1,213 @@
+// out: ../rating.css, compress: false
+
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.rating-results {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #DCDEE1;
+    border-radius: 8px;
+    padding: 50px 42px;
+    margin: 30px 0;
+}
+
+.rating-results-total {
+    width: 160px;
+    text-align: right;
+    
+    .total-value {
+        font-size: 49px;
+        .Bold;
+    }
+}
+
+.rating-results-list {
+    max-width: 468px;
+}
+
+.rating-results-item {
+    .block;
+    margin-bottom: 32px;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    &-info {
+        display: flex;
+        justify-content: space-between;
+        
+        ._title {
+            width: auto;
+            font-size: 18px;
+            .Medium;
+        }
+        
+        ._value {
+            width: auto;
+            font-size: 16px;
+            color: #8E8E8E;
+        }
+    }
+    
+    &-progress {
+        height: 8px;
+        background: #EBEBEB;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 10px;
+        
+        .line {
+            height: 8px;
+            border-radius: 4px;
+            background: #0D84FB;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+.set-rating-block {
+    .block;
+    margin-bottom: 30px;
+    
+    .set-rating-item {
+        .block;
+        padding-bottom: 17px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #EBEBEB;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        ._title {
+            .block;
+            width: 227px;
+        }
+    }
+    
+    .rating-value {
+        width: auto;
+        float: right;
+    }
+}
+
+.rating-stars {
+    width: 160px;
+    .block;
+    display: flex;
+    
+    .star {
+        width: 32px;
+        height: 22px;
+        position: relative;
+        .pointer;
+        
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+            left: 5px;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        
+        &:before {
+            background-image: url(../img/rating-star.svg);
+        }
+        
+        &:after {
+            background-image: url(../img/rating-star-active.svg);
+            display: none;
+        }
+        
+        &.filled,
+        &.selected {
+            &:after {
+                display: block;
+            }
+        }
+    }
+}
+
+.dark {
+    .features-item,
+    .rating-results,
+    .set-rating-block .set-rating-item {
+        border-color: #3C3C3C;
+    }
+    
+    .rating-stars .star:before {
+        background-image: url(../img/rating-star-dark.svg);
+    }
+}
+
+@media screen and (max-width: 1230px) and (min-width: 1001px) {
+    .with-sidebar .rating-results {
+        padding: 40px 30px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .rating-results {
+        padding: 35px 28px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .set-rating-block .set-rating-item ._title {
+        width: 185px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rating-results {
+        flex-direction: column;
+    }
+    
+    .rating-results-total {
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
+        
+        .subtitle {
+            margin-bottom: 0;
+        }
+    }
+    
+    .set-rating-block .rating-value {
+        display: none;
+    }
+    
+    .set-rating-block .set-rating-item ._title {
+        padding-right: 20px;
+        width: auto;
+    }
+    
+    .rating-results {
+        padding: 35px 20px;
+    }
+    
+    .rating-results-item {
+        margin-bottom: 25px;
+    }
+    
+    .set-rating-block .set-rating-item {
+        display: flex;
+        justify-content: space-between;
+    }
+}

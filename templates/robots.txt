@@ -1,0 +1,17 @@
+# Group 1 - Google
+User-Agent: Googlebot
+
+Disallow: /media/
+Disallow: /staticfiles/
+Disallow: /static/
+
+
+
+# Group 2 - Bing
+User-Agent: Bingbot
+
+Disallow: /media/
+Disallow: /staticfiles/
+Disallow: /static/
+
+Sitemap: https://domain.com/sitemap.xml

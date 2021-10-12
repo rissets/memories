@@ -1,0 +1,116 @@
+{% extends 'blog/base.html' %} {% load static i18n %}
+
+{% block title %}{% trans "Sign In" %} - Memories{% endblock title %}
+
+{% block contents %}
+<div class="page-wrap profile-page">
+    <div class="page-wrap-content">
+        <div class="breadcrumbs">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    <a href="{% url 'blog:home' %}">{% trans "Home" %}</a> / <a href="#">{% trans "Account" %}</a> / <span class="current">{% trans "Sign In" %}</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_default modal_login" style="margin: 0 auto;">
+            <div class="wrap">
+                <div class="wrap_float">
+                
+                    <div class="wrap wrap-center">
+                        <h2 class="title">{% trans "Sign in" %}</h2>
+
+                        <div class="single-content wp-content" style="padding-bottom: 0;">
+                            <div class="wrap wrap-center">
+                                <div class="wrap_float">
+                                    <ul class="checklist-ul">
+                                        {% if form.errors %}
+                                            {% for field in form %}
+                                                {% for error in field.errors %}
+                                                    <li class="disable-li" style="font-size: 12px;">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                            {% for error in form.non_field_errors %}
+                                                <li class="disable-li" style="font-size: 16px;">
+                                                    <span class="current">{{ error|escape }}</span>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-form">
+                            <form action="{% url 'accounts:login' %}" method="post">
+                                {% csrf_token %}
+                                <div class="input-wrap white-label">
+                                    <input type="text" class="input" placeholder="Username" name="{{ form.username.name }}" required>
+                                </div>
+                                <div class="input-wrap white-label password-field">
+                                    <input type="password" class="input password-input" name="{{ form.password.name }}" placeholder="Password">
+                                    <button class="show-password-btn"></button>
+                                </div>
+                                <div class="agreement">
+                                    {% comment %} <input type="checkbox" name="remember_me" class="agreement-checkbox" id="remember-1"> {% endcomment %}
+                                    {{form.remember_me}}
+                                    <label for="remember-1" class="agreement-label">
+                                        <span>
+                                            {% trans "Remember me" %}
+                                        </span>
+                                    </label>
+                                </div>
+                                <button class="btn" type="submit">
+                                    <span>{% trans "Login" %}</span>
+                                </button>
+                                <div class="authorization-socials">
+                                    <div class="authorization-socials-variants">
+                                        <div class="socials">
+                                            <div class="soc-link">
+                                                <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+                                            </div>
+                                            <div class="soc-link">
+                                                <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+                                            </div>
+                                            <div class="soc-link">
+                                                <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-info">
+                            <p><a href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a></p>
+                            <p>{% trans "Don’t have an account?" %} <a href="{% url 'accounts:register' %}">{% trans "Create your own right now." %}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="bottom-message {{ message.tags }}-message" id="{{ message.tags }}-message">
+        <span>
+            {{ message|escape }}
+        </span>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endblock contents %}
+
+{% block extra_scripts %}
+<script>
+setTimeout(function () {
+    jQuery("#success-message").addClass("visible");
+}, 1000);
+
+setTimeout(function () {
+    jQuery("#success-message").removeClass("visible");
+}, 4000);
+</script>
+{% endblock extra_scripts %}

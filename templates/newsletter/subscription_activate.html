@@ -1,0 +1,32 @@
+{% extends "newsletter/common.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Newsletter" %} {{ newsletter.title }} {{ action }} {% trans "activate" %}{% endblock title %}
+
+{% block body %}
+    <h1>{% trans "Newsletter" %} {{ newsletter.title }} {{ action }} {% trans "activate" %}</h1>
+
+    <form enctype="multipart/form-data" method="post" action=".">
+        {% csrf_token %}
+        <div class="profile-settings-data">
+            <div class="fields">
+                <div class="input-wrap white-label name-field">
+                    <input type="text" name="name_field" value={{form.name_field.value}} maxlength="30" id="id_name_field" class="input" placeholder="Name" />
+                </div>
+                <div class="input-wrap white-label name-field">
+                    <input type="email" name="email_field" value={{form.email_field.value}} required="" id="id_email_field" class="input" placeholder="Email*" />
+                </div>
+
+                <div class="input-wrap white-label name-field fullwidth">
+                    <input type="text" name="user_activation_code" value={{form.user_activation_code.value}} id="id_user_activation_code" required class="input" placeholder="Activation code*" />
+                </div>
+                <button id="id_submit" name="submit" value="Subscribe" type="submit" class="btn submit-btn" style="margin-top: 30px;">
+                    <span>Subscribe</span>
+                </button>
+            </div>
+        </div>
+        {% comment %} {{ form.as_p }}
+        <p><input id="id_submit" name="submit" value="{% trans "Activate" %}" type="submit" /></p> {% endcomment %}
+    </form>
+{% endblock body %}

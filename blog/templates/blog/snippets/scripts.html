@@ -1,0 +1,21 @@
+{% load static compress %}
+{% compress js %}
+
+<script src="{% static 'blog/js/jquery.min.js' %}"></script>
+<script src="{% static 'blog/js/checkmode.js' %}"></script>
+<script src="{% static 'blog/js/slick.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.arcticmodal.min.js' %}"></script>
+<script src="{% static 'blog/js/lightgallery.js' %}"></script>
+<script src="{% static 'blog/js/jquery.mousewheel.min.js' %}"></script>
+<script src="{% static 'blog/js/device.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.placeholder.label.js' %}"></script>
+<script src="{% static 'blog/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'blog/js/toastr.min.js' %}"></script>
+<script src="{% static 'blog/js/scripts.js' %}"></script>
+<script src="{% static 'blog/js/main.js' %}"></script>
+
+<script>
+  var logout_url = "{% url 'accounts:sign-out' %}"
+  var loggin_url = "{% url 'accounts:sign-in' %}"
+</script>
+{% endcompress %}

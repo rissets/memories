@@ -1,0 +1,82 @@
+// out: ../arrows.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.arrows {
+    width: auto;
+}
+
+.arrow,
+.slick-arrow,
+.lg-actions > *,
+.wp-calendar-nav a,
+.ui-datepicker-header a {
+    width: 32px;
+    height: 32px;
+    display: block;
+    float: left;
+    background: #F0F0F0;
+    border-radius: 50%;
+    .transition;
+    .pointer;
+    position: relative;
+    color: transparent;
+    
+    &:before {
+        width: 12px;
+        height: 8px;
+        background: url(../img/arrow.svg) center center no-repeat;
+        background-size: contain;
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        margin-left: -6px;
+        margin-top: -4px;
+        .transition;
+    }
+    
+    &:after {
+        width: 12px;
+        height: 8px;
+        background: url(../img/arrow-white.svg) center center no-repeat;
+        background-size: contain;
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        margin-left: -6px;
+        margin-top: -4px;
+        opacity: 0;
+        .transition;
+    }
+    
+    &:hover {
+        background: #747B88;
+        
+        &:before {
+            opacity: 0;
+        }
+        
+        &:after {
+            opacity: 1;
+        }
+    }
+    
+    &.slick-prev,
+    &.prev,
+    &.lg-prev,
+    &.ui-datepicker-prev {
+        margin-right: 20px;
+        
+        &:before,
+        &:after {
+            transform: rotate(180deg);
+        }
+    }
+}

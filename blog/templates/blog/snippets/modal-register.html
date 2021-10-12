@@ -1,0 +1,62 @@
+{% load static i18n %}
+
+<div style="display: none;">
+    <div class="modal modal_default modal_registration" id="modal-registration">
+        <div class="modal_wrap">
+            <h2 class="title">{% trans "Sign up" %}</h2>
+            <div class="modal-form">
+                <form id="signupform" action="{% url 'accounts:sign-up' %}" method="POST">
+                {% csrf_token %}
+                    <div class="input-wrap white-label">
+                        {{form.first_name}}
+                    </div>
+                    <div class="input-wrap white-label">
+                        {{form.last_name}}
+                    </div>
+                    <div class="input-wrap white-label">
+                        {{form.username}}
+                    </div>
+                    <div class="input-wrap white-label password-field">
+                        {{form.password1}}
+                        <button class="show-password-btn"></button>
+                    </div>
+                    <div class="input-wrap white-label password-field">
+                        {{form.password2}}
+                        <button class="show-password-btn"></button>
+                    </div>
+                    {{form.token}}
+                    {% comment %} <div class="agreement">
+                        {{form.agreement}}
+                        <label for="agree-1" class="agreement-label">
+                            <span>
+                                {% trans "I accept the conditions of transmitting information" %}
+                            </span>
+                        </label>
+                    </div> {% endcomment %}
+                    <button type="submit" class="btn submit-btn">
+                        <span>{% trans "Sign up" %}</span>
+                    </button>
+                    <div class="authorization-socials">
+                        <div class="authorization-socials-variants">
+                            <div class="socials">
+                                <div class="soc-link">
+                                    <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+                                </div>
+                                <div class="soc-link">
+                                    <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+                                </div>
+                                <div class="soc-link">
+                                    <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-info">
+                <p>{% trans "Have an account?" %} <a data-href="#modal-login" class="getModal">{% trans "Sign in your right now." %}</a></p>
+            </div>
+        </div>
+        <div class="modal_close"></div>
+    </div>
+    </div>

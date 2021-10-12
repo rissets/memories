@@ -1,0 +1,94 @@
+{% load static i18n %}
+
+<div class="mobile-panel">
+    <div class="wrap">
+        <div class="wrap_float">
+            <div class="mobile-btn" id="js-menu-open">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a class="logo" href="{% url 'blog:home' %}">
+                Memories
+            </a>
+            <div class="search-button"></div>
+        </div>
+    </div>
+</div>
+<div class="container-wrap--dummy"></div>
+<div class="top-panel fixed-scroll-up" id="js-panel" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <div class="wrap">
+        <div class="wrap_float">
+            <div class="mode-check">
+                <input type="checkbox" id="mode-checkbox" class="mode-checkbox-input">
+                <label for="mode-checkbox" class="mode-checkbox-label" data-dark-title="Dark Mode" data-light-title="Light Mode"></label>
+            </div>
+            <div class="wrap-center">
+                <a href="{% url 'blog:home' %}" class="logo">
+                    Memories
+                </a>
+                <div class="menu" id="js-menu">
+                    <ul>
+                        <li>
+                            <a itemprop="url" href="{% url 'blog:home' %}" itemprop="name">{% trans "Home" %}</a>
+                        </li>
+                        <li>
+                            <a href="#" itemprop="name">{% trans "Categories" %}</a>
+                            <ul>
+                                {% for category in categories %}
+                                <li><a itemprop="url" href="{% url 'blog:category' category %}" itemprop="name">{{category|title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% comment %} <li><a itemprop="url" href="{% url 'blog:home' %}" itemprop="name">{% trans "Portfolio" %}</a></li>
+                        <li><a itemprop="url" href="{% url 'shop' %}" itemprop="name">{% trans "Shop" %}</a></li> {% endcomment %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        <li>
+                        {% for language in languages %}
+                            {% comment %} {% if language.code == "en" %}
+                                <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:'}}" lang="{{ language.code }}" style="padding-left: 0;"> ENG</a>
+                            {% else %} {% endcomment %}
+                            
+                            <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:' }}" lang="{{ language.code }}" style="padding-left: 0; {% if forloop.last == False %} padding-right: 4px;{% endif %}">{{language.code|upper}}{% if forloop.last == False %} / {% endif %}</a>
+                            {% comment %} {% endif %} {% endcomment %}
+                            
+                        {% endfor %}
+                        </li>
+                    </ul>
+                    <ul>
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a href="#">{% trans "Account" %}</a>
+                            <ul>
+                                <li><a href="{% url 'accounts:profile' %}">{% trans "Profile" %}</a></li>
+                                <li><a href="{% url 'password_change' %}">{% trans "Change Password" %}</a></li>
+                                <li><a href="{% url 'accounts:save_post' %}">{% trans "Favourite" %}</a></li>
+                                <li><a href="{% url 'accounts:sign-out' %}" id="signout">{% trans "Sign Out" %}</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li class="login-li"><a itemprop="url" href="{% url 'accounts:sign-in' %}" class="login-link" itemprop="name">{% trans "Sign In" %}</a></li>
+                        {% endif %}
+                        
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-button" id="btn-search"></div>
+        </div>
+        <div class="socials">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="soc-link">
+                <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+            </a>
+            <a href="http://twitter.com/share?text={{ article.title }}. &url={{ request.build_absolute_uri }}" target="_blank" class="soc-link">
+                <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}"  target="_blank" class="soc-link">
+                <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+            </a>
+        </div>
+        <div class="menu-close" id="js-menu-close"></div>
+    </div>
+</div>

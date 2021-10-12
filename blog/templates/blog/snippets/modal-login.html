@@ -1,0 +1,61 @@
+{% load static i18n %}
+
+<div style="display: none;">
+    <div class="modal modal_default modal_login" id="modal-login">
+        <div class="modal_wrap">
+            <h2 class="title">{% trans "Sign in" %}</h2>
+                <div class="modal-form">
+                    <form id="signinform" action="{% url 'accounts:sign-in' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="input-wrap white-label">
+                            {{form_login.username}}
+                        </div>
+                        <div class="input-wrap white-label password-field">
+                            {{form_login.password}}
+                            <button class="show-password-btn"></button>
+                        </div>
+                        <div class="agreement">
+                            
+                            {{form_login.remember_me}}
+                            <label for="remember-1" class="agreement-label">
+                                <span>
+                                    {% trans "Remember me" %}
+                                </span>
+                            </label>
+                        </div>
+                        <button class="btn" type="submit">
+                            <span>{% trans "Sign In" %}</span>
+                        </button>
+                        <div class="authorization-socials">
+                            <div class="authorization-socials-variants">
+                                <div class="socials">
+                                    <div class="soc-link">
+                                        <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+                                    </div>
+                                    <div class="soc-link">
+                                        <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+                                    </div>
+                                    <div class="soc-link">
+                                        <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-info">
+                    <p><a href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a></p>
+                    <p>{% trans "Don’t have an account?" %} <a data-href="#modal-registration" class="getModal">{% trans "Create your own right now." %}</a></p>
+                </div>
+        </div>
+        <div class="modal_close"></div>
+    </div>
+</div>
+
+{% if form.errors %}
+    <div class="bottom-message error-message visible" id="error-message">
+        <span>
+            {% trans "Error: Username or Password not corret!" %}
+        </span>
+    </div>
+{% endif %}

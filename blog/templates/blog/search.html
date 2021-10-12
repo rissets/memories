@@ -1,0 +1,127 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+{% block title %}{{ q }} - Memories{% endblock title %}
+
+{% block contents %}
+<div class="page-wrap archive-page search-results-page">
+    <div class="breadcrumbs">
+        <div class="wrap wrap-center">
+            <div class="wrap_float">
+                <a href="{% url 'blog:home' %}">{% trans "Home" %}</a> / <a href="#">{% trans "Search" %}</a> / <span class="current">{{ q }}</span>
+            </div>
+        </div>
+    </div>
+
+    {% if q and results.count > 0 %}
+    <div class="archive-header">
+        <div class="wrap wrap-center">
+            <div class="wrap_float">
+                <div class="title-wrap">
+                    <h1 class="page-title">{{ q }}</h1>
+                    <div class="posts-count">
+                        
+                        {% with results.count as total_results %}{{total_results}} {% if LANGUAGE_CODE == 'id' %}Artikel{% else %}Post{{ total_results|pluralize }}{% endif %}{% endwith %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="archive-body">
+        <div class="wrap">
+            <div class="page-wrap-content">
+                <div class="post-items-list posts-three-columns">
+                    {% for post in results %}
+                    {% if post.image %}
+                    <a href="{{ post.get_absolute_url }}" class="post-item">
+                        <img src="{{ post.image.url }}" alt="" class="post-bg-img">
+                        <div class="post-tags">
+                            {% for tag in post.tags.all %}
+                            <div class="tag">{{tag|title}}</div>
+                            {% endfor %}
+                        </div>
+                        <h3 class="post-title">
+                            {{ post.title|title }}
+                        </h3>
+                        <div class="post-info">
+                            <div class="post-author post-info-author">
+                                <div class="author-image">
+                                    <img src="{{ post.author.profile.avatar.url }}" alt="" class="image-cover">
+                                </div>
+                                <span>{{ post.author.first_name}} {{ post.author.last_name}} </span>
+                            </div>
+                            <div class="post-date post-info-date">
+                                {{ post.pub_date|date:"d F Y"}}
+                            </div>
+                            {% if request.user.is_authenticated %}
+                            <div class="post-views post-info-views">
+                                {{ post.like_count }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}" class="post-item without-bg">
+                        <div class="post-tags">
+                            {% for tag in post.tags.all %}
+                            <div class="tag">{{tag|title}}</div>
+                            {% endfor %}
+                        </div>
+                        <h3 class="post-title">
+                            {{ post.title }}
+                        </h3>
+                        <div class="post-excerption">
+                            {{ post.excerpt }}
+                        </div>
+                        <div class="post-info">
+                            <div class="post-author post-info-author">
+                                <div class="author-image">
+                                    <img src="{{ post.author.profile.avatar.url }}" alt="" class="image-cover">
+                                </div>
+                                <span>{{ post.author.first_name }} {{ post.author.last_name }}</span>
+                            </div>
+                            <div class="post-date post-info-date">
+                                {{ post.pub_date|date:" d F Y"}}
+                            </div>
+                            {% if request.user.is_authenticated %}
+                            <div class="post-views post-info-views">
+                                {{ post.like_count }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    {% else %}
+    <div class="archive-header">
+        <div class="wrap wrap-center">
+            <div class="wrap_float">
+                <div class="title-wrap">
+                    <h1 class="page-title">{{ q }}</h1>
+                    <div class="posts-count">
+                        0 {% trans "Posts" %}
+                    </div>
+                    <div class="text not-found-text">
+                        <p>
+                            {% trans "Nothing found! Change the search query and try again" %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock contents %}

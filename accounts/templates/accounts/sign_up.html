@@ -1,0 +1,83 @@
+{% extends 'accounts/base.html' %} {% load static i18n %}
+
+{% block title %}{% trans "Sign Up" %} - Memories{% endblock title %}
+
+{% block header %}
+    <script src='https://www.google.com/recaptcha/api.js?render={{recaptcha_site_key}}'></script>
+{% endblock header %}
+
+{% block contents %}
+<div class="page-wrap profile-page">
+    <div class="page-wrap-content">
+        <div class="breadcrumbs">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    <a href="{% url 'blog:home' %}">{% trans "Home" %}</a> / <a href="#">{% trans "Account" %}</a> / <span class="current">{% trans "Sign Up" %}</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_default modal_login" style="margin: 0 auto;">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="wrap wrap-center">
+                        <h2 class="title">{% trans "Sign up" %}</h2>
+                            <div class="modal-form">
+                                <form id="signupform" action="{% url 'accounts:sign-up' %}" method="POST">
+                                {% csrf_token %}
+                                    <div class="input-wrap white-label">
+                                        {{form.first_name}}
+                                    </div>
+                                    <div class="input-wrap white-label">
+                                        {{form.last_name}}
+                                    </div>
+                                    <div class="input-wrap white-label">
+                                        {{form.username}}
+                                    </div>
+                                    <div class="input-wrap white-label password-field">
+                                        {{form.password1}}
+                                        <button class="show-password-btn"></button>
+                                    </div>
+                                    <div class="input-wrap white-label password-field">
+                                        {{form.password2}}
+                                        <button class="show-password-btn"></button>
+                                    </div>
+                                    {{form.token}}
+                                    <button type="submit" class="btn submit-btn">
+                                        <span>{% trans "Sign up" %}</span>
+                                    </button>
+                                    <div class="authorization-socials">
+                                        <div class="authorization-socials-variants">
+                                            <div class="socials">
+                                                <div class="soc-link">
+                                                    <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+                                                </div>
+                                                <div class="soc-link">
+                                                    <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+                                                </div>
+                                                <div class="soc-link">
+                                                    <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-info">
+                                <p>{% trans "Have an account?" %} <a href="{% url 'accounts:sign-in' %}">{% trans "Sign in your right now." %}</a></p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock contents %}
+
+{% block extra_scripts %}
+<script>
+    // Create a variable that can be used in main.js
+    var recaptcha_site_key = '{{recaptcha_site_key|safe}}'
+    var signup_redirect = "{% url 'accounts:sign-in' %}"
+</script>
+{% endblock extra_scripts %}

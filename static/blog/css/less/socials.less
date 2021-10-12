@@ -1,0 +1,103 @@
+// out: ../socials.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.socials {
+    .block;
+    width: auto;
+    
+    .soc-link {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: @light-child;
+        margin-right: 13px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+        
+        img, svg {
+            max-width: 18px;
+            max-height: 18px;
+        }
+        
+        * {
+            fill: #747B88;
+            .transition;
+        }
+
+        &:hover {
+            background: @theme-color;
+
+            * {
+                fill: #fff;
+                transition: all .1s linear;
+            }
+        }
+    }
+}
+
+.dark {
+    .socials .soc-link {
+        background: rgba(255, 255, 255, .17);
+        
+        &:hover {
+            background: @theme-color;
+        }
+        
+        * {
+            fill: #DBDDE1;
+        }
+    }
+}
+
+.mobile,
+.tablet {
+    .socials .soc-link {
+        &:hover {
+            background: @light-child;
+            
+            * {
+                fill: #747B88;
+            }
+        }
+    }
+    
+    .dark {
+        .socials .soc-link {
+            &:hover {
+                background: rgba(255, 255, 255, .17);
+                
+                * {
+                    fill: #DBDDE1;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .socials .soc-link {
+        width: 44px;
+        height: 44px;
+        
+        &:after {
+            display: none;
+        }
+        
+        &:hover {
+            background: #dbdde1;
+        }
+    }
+}

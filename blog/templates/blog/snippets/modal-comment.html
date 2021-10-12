@@ -1,0 +1,46 @@
+{% load i18n %}
+
+<div style="display: none;">
+    <div class="modal modal_default modal_order" id="reply-comment{{node.id}}">
+        <div class="modal_wrap">
+            <h2 class="title">{% trans "To" %} {{ node.name }}</h2>
+            <div class="subtitle">
+                <cite>{{ node.content }}</cite>
+            </div>
+            <div class="modal-form">
+            <form id="newForm" method="POST">
+            {% csrf_token %}
+            
+                <div class="comments-form">
+                    {% comment %} {{comment_form.as_p}} {% endcomment %}
+                    <select name="parent" class="d-none" style="display: none;" id="id_parent">
+                    <option value="{{node.id}}" selected="{{node.id}}"></option>
+                    </select>
+                    {% if request.user.is_authenticated %}
+                    <div class="input-wrap white-label name-field">
+                        <input type="hidden" class="input" required name="name" value="{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}">
+                    </div>
+                    <div class="input-wrap white-label email-field">
+                        <input type="hidden" class="input" required name="email" value="{{request.user.email}}">
+                    </div>
+                    {% else %}
+                    <div class="input-wrap white-label name-field">
+                        <input type="text" class="input" required placeholder="Name*" name="name">
+                    </div>
+                    <div class="input-wrap white-label email-field">
+                        <input type="email" class="input" required placeholder="Email*" name="email">
+                    </div>
+                    {% endif %}
+                    <div class="input-wrap white-label fullwidth">
+                        <textarea class="input textarea" placeholder="Write a comment" required name="content"></textarea>
+                    </div>
+                    <button type="submit" class="btn submit-btn">
+                        <span>{% trans "Post Comment" %}</span>
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div class="modal_close"></div>
+    </div>
+</div>

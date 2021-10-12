@@ -1,0 +1,261 @@
+// out: ../buttons.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+@keyframes spin {
+  from { transform: rotate(0) translate(-50%, -50%) }
+  to { transform: rotate(360deg) translate(-50%, -50%) }
+}
+
+@keyframes rot {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@-webkit-keyframes bouncy {
+    from, to { -webkit-transform: scale(1, 1); }
+    25% { -webkit-transform: scale(0.9, 1.1); }
+    50% { -webkit-transform: scale(1.1, 0.9); }
+    75% { -webkit-transform: scale(0.95, 1.05); }
+}
+
+@keyframes bouncy {
+    from, to { transform: scale(1, 1); }
+    25% { transform: scale(0.9, 1.1); }
+    50% { transform: scale(1.1, 0.9); }
+    75% { transform: scale(0.95, 1.05);}
+}
+
+.bouncy {
+    -webkit-animation: bouncy 0.6s;
+    animation: bouncy 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+
+.loader {
+  position: relative;
+  width: 100%;
+    height: 58px;
+    float: left;
+    display: none;
+    
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.circular {
+  animation: rot 2s linear infinite;
+  height: 58px;
+  transform-origin: center center;
+  width: 58px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+    margin-left: -29px;
+  right: 0;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+    stroke: @theme-color;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+
+button {
+    display: block;
+    float: left;
+    border: 0;
+    padding: 0;
+    .transition;
+    
+    &:focus {
+        outline: 0;
+    }
+    
+    &:active {
+        outline: 0;
+    }
+    
+    &:hover {
+        .transition;
+    }
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    height: 57px;
+    background: @theme-color;
+    border-radius: 8px;
+    font-size: 17px;
+    color: #fff;
+    .Medium;
+    padding: 0 30px;
+    white-space: nowrap;
+    position: relative;
+    
+    &:hover {
+        background: #E1F0FF;
+        color: @theme-color;
+    }
+    
+    &:after {
+        content: '';
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 20px;
+          height: 20px;
+          border: solid 2px;
+          border-color: #fff transparent transparent transparent;
+          border-radius: 100%;
+          -webkit-transition: .3s ease;
+          -moz-transition: .3s ease;
+          -o-transition: .3s ease;
+          transition: .3s ease;
+          animation: spin 1s infinite;
+          transform-origin: 0 0;
+    }
+    
+    &.load {
+        background: @theme-color;
+        pointer-events: none;
+        
+        span {
+            opacity: 0;
+        }
+        
+        &:after {
+            display: block;
+        }
+    }
+    
+    &.border-btn {
+        background: none;
+    }
+}
+
+.buttons {
+    .block;
+    
+    .btn {
+        margin-right: 20px;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.show-more {
+    .block100;
+    margin-top: 30px;
+}
+
+.show-more-btn {
+    height: 58px;
+    background: @light-child;
+    border-radius: 8px;
+    font-size: 17px;
+    .Medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .transition;
+    .pointer;
+    
+    &:hover {
+        background: #DBDBDB;
+    }
+}
+
+.dark {
+    .show-more-btn {
+        background: #434343;
+        
+        &:hover {
+            background: @light-child;
+            color: @dark-parent;
+        }
+    }
+}
+
+.mobile,
+.table {
+    .show-more-btn {
+        &:hover {
+            background: @light-child;
+        }
+    }
+    
+    .btn {
+        &:hover {
+            background: @theme-color;
+            color: #fff;
+        }
+    }
+    
+    .dark {
+        .show-more-btn {
+            
+            &:hover {
+                background: #434343;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .buttons {
+        display: flex;
+        
+        .btn {
+            padding: 0 15px;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .buttons .btn {
+        margin-right: 12px;
+    }
+}

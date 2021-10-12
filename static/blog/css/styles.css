@@ -1,0 +1,48 @@
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+@import "slick.css";
+@import "lg-transitions.min.css";
+@import "lightgallery.min.css";
+@import "jquery.arcticmodal.css";
+@import "variables.css";
+@import "general.css";
+@import "buttons.css";
+@import "inputs.css";
+@import "arrows.css";
+@import "socials.css";
+@import "top-panel.css";
+@import "search-section.css";
+@import "posts-section.css";
+@import "instagram-section.css";
+@import "subscribe-section.css";
+@import "footer.css";
+@import "single.css";
+@import "comments.css";
+@import "sliders.css";
+@import "wp-content.css";
+@import "accordion.css";
+@import "video.css";
+@import "gallery.css";
+@import "sidebar.css";
+@import "archive.css";
+@import "pagination.css";
+@import "contact-page.css";
+@import "author.css";
+@import "contacts.css";
+@import "search-results.css";
+@import "share.css";
+@import "profile.css";
+@import "modals.css";
+@import "alert.css";
+/*Travel Update*/
+@import "screen-with-search.css";
+@import "sliders-sections.css";
+@import "packages.css";
+@import "collection.css";
+@import "banner-section.css";
+@import "faq-section.css";
+@import "filters.css";
+@import "rating.css";
+@import "calendar.css";

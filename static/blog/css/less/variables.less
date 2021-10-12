@@ -1,0 +1,68 @@
+// out: ../variables.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.Regular {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.Bold {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.Medium {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.pointer {
+    &:hover {
+        cursor: pointer;
+        
+        * {
+            cursor: pointer;
+        }
+    }
+}
+
+.overflow {
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.image-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.block {
+    display: block;
+    float: left;
+}
+
+.block100 {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.transition {
+    transition: all .2s linear;
+}
+
+@theme-color: #0D84FB;
+
+@dark-parent: #1d1d1d;
+@dark-child: #2b2b2b;
+
+@light-child: #ebebeb;

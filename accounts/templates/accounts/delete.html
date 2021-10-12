@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %} {% load i18n %}
+
+{% block title %}{% trans "Delete" %} {{request.user.username|title}}{% endblock title %}
+
+{% block contents %}
+<div class="single-content wp-content">
+  <div class="wrap wrap-center">
+    <div class="wrap_float">
+      <h2>{% trans "Delete user" %} {% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username|title}}{% endif %}</h2>
+      <div class="profile-settings">
+        <form id="userdeleteform" action="{% url 'accounts:delete_user' %}" method="POST">
+          {% csrf_token %}
+          <blockquote>
+            <p>
+                {% trans "Are you sure you want to delete your account?" %}
+                <br><strong>{% trans "*Important - your account data will remain available for 20 days" %}
+            </p>
+            
+          </blockquote>
+          <div class="block-columns">
+            <div class="block-column">
+              <button type="submit" class="btn btn-submit" style="background-color: red;">{% trans "Delete" %}</button>
+            </div>
+            <div class="block-column">
+            <a class="btn" href="{% url 'accounts:profile' %}">{% trans "Back to Dashboard" %}</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock contents %}
+
+
+{% block extra_scripts %}
+  <script>
+    var delete_redirect = "{% url 'accounts:sign-in' %}"
+  </script>
+{% endblock extra_scripts %}

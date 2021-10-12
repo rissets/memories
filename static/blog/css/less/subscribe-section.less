@@ -1,0 +1,172 @@
+// out: ../subscribe-section.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.form {
+    &-fields {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .input-wrap {
+        margin-right: 18px;
+    }
+}
+
+.newsletter-section {
+    .block100;
+    
+    .wrap_float {
+        background: @light-child;
+        border-radius: 8px;
+        padding: 77px 0;
+    }
+    
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px @light-child inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+}
+
+.subscribe-form-block {
+    .block100;
+    background: @light-child;
+    border-radius: 8px;
+}
+
+
+
+
+.dark {
+    .newsletter-section {
+        .wrap_float {
+            background: @dark-child;
+        }
+    }
+    
+    .subscribe-form-block {
+        background: @dark-child;
+    }
+    
+    .form .input-wrap {
+        &.active {
+            .input {
+                border-color: #3C3C3C;
+            }
+            
+            label {
+                background: @dark-child;
+            }
+        }
+    }
+    
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px @dark-child inset;
+      transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: white;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .form-fields {
+        flex-direction: column;
+    }
+    
+    .form .input {
+        margin-right: 0;
+        margin-bottom: 18px;
+    }
+    
+    .form {
+        position: relative;
+        padding-bottom: 75px;
+    }
+    
+    .newsletter-section {
+        .agreement {
+            margin-top: 0;
+        }
+        
+        .btn {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    }    
+}
+
+@media screen and (min-width: 1001px) {
+    .single-content {
+        .subscribe-form-block {
+            padding: 50px 75px;
+            margin: 30px 0;
+
+            .form-fields {
+                flex-wrap: wrap;
+            }
+
+            .form .input-wrap {
+                width: 48%;
+                margin-right: 4%;
+
+                &.email-field {
+                    margin-right: 0;
+                }
+            }
+
+            .btn {
+                margin-top: 26px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1230px) {
+    .single-content .subscribe-form-block {
+        padding: 50px 30px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .subscribe-page .subscribe-form-block {
+        padding: 40px;
+        margin: 20px 0 30px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .subscribe-page .subscribe-form-block {
+        padding: 40px 4vw;
+        
+        .form {
+            padding-bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .newsletter-section .wrap_float {
+        padding: 55px 0;
+    }
+}

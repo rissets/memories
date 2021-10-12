@@ -1,0 +1,36 @@
+{% extends "newsletter/common.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Newsletter unsubscribe" %}{% endblock title %}
+
+{% block body %}
+    <h1>{% trans "Newsletter unsubscribe" %} {{ newsletter.title }}</h1>
+
+    {% if error %}
+        <p>{% trans "Due to a technical error we were not able to submit your confirmation email. This could be because your email address is invalid." %}</p>
+
+        {% comment %} Replace the the following dummy with a valid email address and remove this comment.
+
+        <p>{% trans "If the error persists, please don't hesitate to contact us at the following email address:" %} <a href="mailto:info@foobar.com">info@foobar.com</a></p>
+
+        {% endcomment %}
+    {% else %}
+        <form enctype="multipart/form-data" method="post" action=".">
+        {% csrf_token %}
+            <div class="form">
+                <div class="form-fields">
+                    <div class="input-wrap name-field">
+                        <input type="email" name="email_field" required="" id="id_email_field" class="input" placeholder="Email*" />
+                    </div>
+                    <button id="id_submit" name="submit" value="Subscribe" type="submit" class="btn submit-btn">
+                        <span>{% trans "Unsubscribe" %}</span>
+                    </button>
+                </div>
+            </div>
+            
+            {% comment %} {{ form.as_p }}
+            <p><input id="id_submit" name="submit" value="{% trans "Unsubscribe" %}" type="submit" /></p> {% endcomment %}
+        </form>
+    {% endif %}
+{% endblock body %}

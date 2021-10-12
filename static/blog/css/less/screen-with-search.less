@@ -1,0 +1,201 @@
+// out: ../screen-with-search.css, compress: false
+
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.header-with-search {
+    position: relative;
+    .block100;
+    color: #fff;
+    z-index: 1;
+    
+    &:before {
+        opacity: .52;
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        background: #000;
+        z-index: 2;
+    }
+    
+    &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 160px;
+        z-index: 4;
+        opacity: .58;
+
+        background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    }
+    
+    .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .wrap_float {
+        min-height: 777px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 0;
+    }
+    
+    .subtitle {
+        font-size: 18px;
+    }
+    
+    .footnote {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        font-size: 14px;
+        color: rgba(255, 255, 255, .66);
+        
+        .location {
+            display: inline-block;
+            float: none;
+            margin-left: 10px;
+            font-size: inherit;
+            
+            &:before {
+                width: 15px;
+                height: 20px;
+                top: 50%;
+                margin-top: -10px;
+            }
+        }
+    }
+}
+
+.destination-field {
+    position: relative;
+    
+    .search-input {
+        background-color: #fff;
+        background-image: url(../img/geo.svg);
+        background-position: center left 25px;
+        background-size: 14px 19px;
+        background-repeat: no-repeat;
+        
+        padding-left: 50px;
+        color: #000;
+        
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        
+        &::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+        
+        &.focus {
+            background-image: url(../img/geo-black.svg);
+        }
+    }
+    
+    .search-submit {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
+    .text {
+        margin-top: 32px;
+        
+        span {
+            color: #fff;
+        }
+        
+        a {
+            color: rgba(255, 255, 255, .66);
+            text-decoration: none;
+            
+            &:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.container.page--move .header-with-search {
+    border-radius: 13px 13px 0 0;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1700px) {
+    .header-with-search .wrap_float {
+        min-height: 730px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .header-with-search .wrap_float {
+        min-height: 630px;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .destination-field .search-input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header-with-search .wrap-center {
+        max-width: 720px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .header-with-search .wrap_float {
+        min-height: 528px;
+        padding: 70px 0;
+    }
+    
+    .header-with-search {
+        .page-title {
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            margin-bottom: 20px;
+        }
+    }
+    
+    .destination-field .text {
+        margin-top: 20px;
+    }
+    
+    .header-with-search .footnote {
+        bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .destination-field .search-input {
+        padding-left: 35px;
+        background-position: center left 12px;
+        font-size: 18px;
+        padding-right: 60px;
+    }
+}

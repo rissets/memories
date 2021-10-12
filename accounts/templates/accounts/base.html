@@ -1,0 +1,72 @@
+{% load i18n static compress %}
+{% load pwa %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    {% progressive_web_app_meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google-site-verification" content="lQQ5lIBj_SuLnJJLM4LhCpBHYxuXKiyS4pSs2l0PDMc" />    
+    {% block head_meta %}
+        <meta name="twitter:description" content="{% trans 'Get information that is informative, motivating and in accordance with facts. Protect yourself from fraud, and be someone who is open minded.' %}"/>
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="{% static 'assets/img/home-bg.jpg' %}" />
+        <meta name="description" content="{% trans 'Get information that is informative, motivating and in accordance with facts. Protect yourself from fraud, and be someone who is open minded.' %}" />
+        <meta property="og:title" content="Memories" />
+        <meta property="og:type" content="website" />
+    {% endblock head_meta %}
+
+    
+
+    {% block header %}{% endblock header %}
+
+    {% include 'blog/snippets/styles.html' %}
+
+    {% block extra_styles %}{% endblock extra_styles %}
+    
+    {% include 'blog/snippets/favicons.html' %}
+    
+</head>
+
+<body class="transition-none">
+
+    <div class="search-section">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="search-form">
+                    <form action="{% url 'blog:search' %}"  method="get">
+                        <input autocomplete="off" name="q" type="text" class="search-input" placeholder="{% trans "Search…" %}">
+                        <button class="search-submit"></button>
+                    </form>
+                </div>
+                <div class="search-close" id="search-close"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container page">
+        <div class="container-wrap">
+            
+            {% include 'blog/snippets/navbar.html' %}
+            
+            {% block contents %}
+                
+            {% endblock contents %}
+
+            {% include 'blog/snippets/footer.html' %}
+        </div>
+    </div>
+
+
+    {% include 'blog/snippets/scripts.html' %}
+    <script>
+        
+    </script>
+    {% block extra_scripts %}{% endblock extra_scripts %}
+
+</body>
+
+</html>

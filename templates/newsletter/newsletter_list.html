@@ -1,0 +1,43 @@
+{% extends "newsletter/common.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Newsletter list" %}{% endblock title %}
+
+{% block body %}
+{% if user.is_authenticated %}
+
+<form method="POST" action="">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <table>
+    <tr>
+        <th>{% trans "Newsletter" %}</th>
+        {% if user %}
+        <th>{% trans "Subscribe" %}</th>
+        {% endif %}
+    </tr>
+    {% for form in formset.forms %}
+      <tr>
+        <td>{{ form.id }}{{ form.newsletter }}
+<a href="{% url "newsletter_detail" form.instance.newsletter.slug %}">{{ form.instance.newsletter.title }}</a></td>
+        <td>{{ form.subscribed }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <p><input id="id_submit" class="btn submit-btn" name="submit" value="{% trans "Update subscriptions" %}" type="submit" /></p>
+</form>
+
+{% else %}
+
+<h2>{% trans "Newsletter" %}</h2>
+<ul class="checklist-ul">
+  {% for newsletter in object_list %}
+    <li class="plus-li">
+        <a href="{% url "newsletter_detail" newsletter.slug %}">{{ newsletter.title }}</a
+    </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+{% endblock body %}

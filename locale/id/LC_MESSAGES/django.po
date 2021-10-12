@@ -1,0 +1,964 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-24 20:03+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Danang Haris Setiawan <mr.danangharissetiawan@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: accounts/forms.py:23
+msgid "*Your first name.."
+msgstr "*Nama depan"
+
+#: accounts/forms.py:33
+msgid "*Your last name.."
+msgstr "*Nama belakang"
+
+#: accounts/forms.py:43
+msgid "*Email"
+msgstr "*Email"
+
+#: accounts/forms.py:51
+#, fuzzy
+#| msgid "Password Reset"
+msgid "*Password"
+msgstr "*Kata Sandi"
+
+#: accounts/forms.py:59
+#, fuzzy
+#| msgid "Change Password"
+msgid "*Confirm Password"
+msgstr "*Konfirmasi kata sandi"
+
+#: accounts/forms.py:76
+msgid "Username already exists"
+msgstr "Username sudah digunakan"
+
+#: accounts/forms.py:82
+msgid "Passwords do not match."
+msgstr "Sandi tidak cocok."
+
+#: accounts/forms.py:93 accounts/forms.py:195
+msgid "*Email.."
+msgstr "*Email.."
+
+#: accounts/forms.py:102
+#, fuzzy
+#| msgid "Password Reset"
+msgid "*Password.."
+msgstr "*Kata Sandi"
+
+#: accounts/forms.py:187
+msgid "First Name"
+msgstr "Nama Depan"
+
+#: accounts/forms.py:191
+msgid "Last Name"
+msgstr "Nama Belakang"
+
+#: accounts/templates/accounts/account_activation_email.html:3
+msgid "Hello"
+msgstr "Halo"
+
+#: accounts/templates/accounts/account_activation_email.html:5
+msgid "Please clink the link bellow  to activate your account"
+msgstr "Silakan klik tautan di bawah ini untuk mengaktifkan akun Anda"
+
+#: accounts/templates/accounts/activation_invalid.html:2
+msgid "invalid"
+msgstr "tidak sah"
+
+#: accounts/templates/accounts/base.html:14
+#: accounts/templates/accounts/base.html:17 blog/templates/blog/base.html:13
+#: blog/templates/blog/base.html:16 risset/settings/base.py:204
+#: templates/shop/index.html:8 templates/shop/index.html:25
+#: templates/shop/index.html:31 templates/shop/index.html:618
+#: templates/shop/index.html:648
+#, fuzzy
+#| msgid ""
+#| "Get information that is informative, motivating and in accordance with "
+#| "facts. Protect yourself from fraud, and be someone who is open minded.\n"
+#| "            "
+msgid ""
+"Get information that is informative, motivating and in accordance with "
+"facts. Protect yourself from fraud, and be someone who is open minded."
+msgstr ""
+"Dapatkan informasi yang informatif, memotivasi dan sesuai dengan fakta. "
+"Lindungi diri Anda dari penipuan, dan jadilah seseorang yang berpikiran "
+"terbuka"
+
+#: accounts/templates/accounts/base.html:41
+#, fuzzy
+#| msgid "Search"
+msgid "Search…"
+msgstr "Pencarian"
+
+#: accounts/templates/accounts/delete.html:3
+#: accounts/templates/accounts/delete.html:22
+msgid "Delete"
+msgstr "Hapus"
+
+#: accounts/templates/accounts/delete.html:9
+msgid "Delete user"
+msgstr "Hapus Pengguna"
+
+#: accounts/templates/accounts/delete.html:15
+msgid "Are you sure you want to delete your account?"
+msgstr "Apakah Anda yakin ingin menghapus akun Anda?"
+
+#: accounts/templates/accounts/delete.html:16
+msgid "*Important - your account data will remain available for 20 days"
+msgstr "*Penting - data akun Anda akan tetap tersedia selama 20 hari"
+
+#: accounts/templates/accounts/delete.html:25
+#, fuzzy
+#| msgid "Back to list"
+msgid "Back to Dashboard"
+msgstr "Kembali ke daftar"
+
+#: accounts/templates/accounts/password_change_done.html:4
+#: accounts/templates/accounts/password_reset_form.html:4
+msgid "Password Reset"
+msgstr "Atur Ulang Kata Sandi"
+
+#: accounts/templates/accounts/password_change_done.html:13
+#: accounts/templates/accounts/password_change_form.html:13
+#: accounts/templates/accounts/password_reset_confirm.html:13
+#: accounts/templates/accounts/password_reset_done.html:13
+#: accounts/templates/accounts/password_reset_form.html:13
+#: accounts/templates/accounts/profile.html:12
+#: accounts/templates/accounts/save_posts.html:11
+#: accounts/templates/accounts/sign_in.html:11
+#: accounts/templates/accounts/sign_up.html:15
+#: blog/templates/blog/archive.html:10 blog/templates/blog/category.html:12
+#: blog/templates/blog/detail.html:35
+#: blog/templates/blog/registration/login.html:11
+#: blog/templates/blog/registration/register.html:11
+#: blog/templates/blog/search.html:13
+#: blog/templates/blog/snippets/navbar.html:33
+#: blog/templates/blog/tag_posts_list.html:13
+#: templates/newsletter/newsletter_detail.html:8
+msgid "Home"
+msgstr "Beranda"
+
+#: accounts/templates/accounts/password_change_done.html:13
+#: accounts/templates/accounts/password_change_form.html:13
+#: accounts/templates/accounts/password_reset_confirm.html:13
+#: accounts/templates/accounts/password_reset_done.html:13
+#: accounts/templates/accounts/password_reset_form.html:13
+msgid "Accounts"
+msgstr "Akun"
+
+#: accounts/templates/accounts/password_change_done.html:13
+msgid "Change Password Done"
+msgstr "Ubah Kata Sandi Selesai"
+
+#: accounts/templates/accounts/password_change_done.html:24
+msgid "Change your password"
+msgstr "Ubah kata sandi Anda"
+
+#: accounts/templates/accounts/password_change_done.html:26
+msgid "Your password has been changed successfully"
+msgstr "Kata sandi Anda telah berhasil diubah"
+
+#: accounts/templates/accounts/password_change_form.html:4
+#: accounts/templates/accounts/password_change_form.html:13
+#: blog/templates/blog/snippets/navbar.html:67
+msgid "Change Password"
+msgstr "Ganti kata sandi"
+
+#: accounts/templates/accounts/password_change_form.html:26
+#: accounts/templates/accounts/password_reset_confirm.html:26
+msgid "Change Your Password"
+msgstr "Ubah Kata Sandi Anda"
+
+#: accounts/templates/accounts/password_change_form.html:28
+#: accounts/templates/accounts/password_reset_confirm.html:28
+msgid "User the form blow to change your password."
+msgstr "Gunakan formulir di bawah ini untuk mengubah kata sandi Anda."
+
+#: accounts/templates/accounts/password_change_form.html:68
+#: accounts/templates/accounts/password_reset_confirm.html:40
+#: accounts/templates/accounts/password_reset_done.html:13
+#: accounts/templates/accounts/password_reset_form.html:35
+msgid "Reset Password"
+msgstr "Setel Ulang Kata Sandi"
+
+#: accounts/templates/accounts/password_reset_confirm.html:4
+msgid "Password Reset New Password"
+msgstr "Kata Sandi Atur Ulang Kata Sandi Baru"
+
+#: accounts/templates/accounts/password_reset_confirm.html:13
+#: accounts/templates/accounts/password_reset_form.html:13
+msgid "Forgot Password"
+msgstr "Lupa Kata Sandi"
+
+#: accounts/templates/accounts/password_reset_done.html:4
+msgid "Password Reset Done"
+msgstr "Reset Kata Sandi Selesai"
+
+#: accounts/templates/accounts/password_reset_done.html:24
+msgid "Reset your password done"
+msgstr "Setel ulang kata sandi Anda selesai"
+
+#: accounts/templates/accounts/password_reset_done.html:26
+msgid ""
+"If you don't receive an email, please make sure you're entered the address "
+"you registered with."
+msgstr ""
+"Jika Anda tidak menerima email, pastikan Anda memasukan alamat email yang "
+"Anda daftarkan."
+
+#: accounts/templates/accounts/password_reset_email.html:4
+#, python-format
+msgid ""
+"\n"
+"Hello %(user.get_username)s please use the link below to reset your "
+"password\n"
+msgstr ""
+"\n"
+"Hale %(user.get_username)s silahkan gunakan tautan di bawah ini untuk "
+"mengatur ulang kata sandi Anda\n"
+
+#: accounts/templates/accounts/password_reset_form.html:26
+#: accounts/templates/accounts/sign_in.html:62
+#: blog/templates/blog/registration/login.html:86
+#: blog/templates/blog/snippets/modal-login.html:47
+msgid "Forgot password?"
+msgstr "Lupa kata sandi?"
+
+#: accounts/templates/accounts/password_reset_form.html:28
+#, fuzzy
+#| msgid ""
+#| "Use the e-mail and password that you specified when registering on the "
+#| "site. By clicking "
+msgid ""
+"Use the e-mail and password that you specified when registering on the site. "
+"By clicking 'Reset Password' we will send a password reset link or"
+msgstr ""
+"Gunakan email dan kata sandi yang Anda tentukan saat mendaftar di situs."
+"Dengan mengklik 'Reset Password' kami akan mengirimkan link reset password "
+"atau"
+
+#: accounts/templates/accounts/password_reset_form.html:28
+msgid "back login."
+msgstr "login kembali."
+
+#: accounts/templates/accounts/password_reset_form.html:39
+#: accounts/templates/accounts/sign_in.html:63
+#: blog/templates/blog/registration/login.html:87
+#: blog/templates/blog/snippets/modal-login.html:48
+msgid "Don’t have an account?"
+msgstr "Tidak punya akun?"
+
+#: accounts/templates/accounts/password_reset_form.html:39
+#: accounts/templates/accounts/sign_in.html:63
+#: blog/templates/blog/registration/login.html:87
+#: blog/templates/blog/snippets/modal-login.html:48
+msgid "Create your own right now."
+msgstr "Buat sendiri sekarang juga."
+
+#: accounts/templates/accounts/profile.html:12
+#: accounts/templates/accounts/save_posts.html:11
+#: accounts/templates/accounts/sign_in.html:11
+#: accounts/templates/accounts/sign_up.html:15
+#: blog/templates/blog/registration/login.html:11
+#: blog/templates/blog/registration/register.html:11
+#: blog/templates/blog/snippets/navbar.html:64
+msgid "Account"
+msgstr "Akun"
+
+#: accounts/templates/accounts/profile.html:19
+msgid "Setting"
+msgstr "Pengaturan"
+
+#: accounts/templates/accounts/profile.html:31
+msgid "Change your Avatar"
+msgstr "Ubah Avatar Anda"
+
+#: accounts/templates/accounts/profile.html:51
+msgid "Save Setting"
+msgstr "Simpan Pengaturan"
+
+#: accounts/templates/accounts/profile.html:55
+msgid "Delete User"
+msgstr "Hapus Pengguna"
+
+#: accounts/templates/accounts/save_posts.html:3
+msgid "Favourite Posts"
+msgstr "Postingan Favorit"
+
+#: accounts/templates/accounts/save_posts.html:11
+msgid "Favourites"
+msgstr "Favorit"
+
+#: accounts/templates/accounts/save_posts.html:18
+msgid "Favorites"
+msgstr "Favorit"
+
+#: accounts/templates/accounts/save_posts.html:115
+msgid "You don't have any favorite posts yet."
+msgstr "Anda belum memiliki postingan favorit."
+
+#: accounts/templates/accounts/save_posts.html:122
+#: blog/templates/blog/archive.html:10 blog/templates/blog/archive.html:141
+#: blog/templates/blog/category.html:120
+#: blog/templates/blog/tag_posts_list.html:128
+#: templates/newsletter/newsletter_detail.html:26
+msgid "Archive"
+msgstr "Arsip"
+
+#: accounts/templates/accounts/save_posts.html:134
+#: blog/templates/blog/archive.html:153 blog/templates/blog/category.html:132
+#: blog/templates/blog/tag_posts_list.html:140
+msgid "Popular Post"
+msgstr "Postingan Populer"
+
+#: accounts/templates/accounts/save_posts.html:193
+#: blog/templates/blog/archive.html:212 blog/templates/blog/category.html:12
+#: blog/templates/blog/category.html:191
+#: blog/templates/blog/snippets/navbar.html:36
+#: blog/templates/blog/tag_posts_list.html:199
+msgid "Categories"
+msgstr "Kategori"
+
+#: accounts/templates/accounts/save_posts.html:203
+#: blog/templates/blog/archive.html:222 blog/templates/blog/category.html:201
+#: blog/templates/blog/tag_posts_list.html:209
+msgid "Tag Cloud"
+msgstr "Tag Cloud"
+
+#: accounts/templates/accounts/save_posts.html:223 accounts/views.py:294
+msgid "Unfortunately the article was successfully removed from favorites."
+msgstr "Sayangnya artikel tersebut berhasil dihapus dari favorit."
+
+#: accounts/templates/accounts/sign_in.html:3
+#: accounts/templates/accounts/sign_in.html:11
+#: accounts/templates/accounts/sign_in.html:42
+#: blog/templates/blog/registration/login.html:3
+#: blog/templates/blog/registration/login.html:11
+#: blog/templates/blog/snippets/modal-login.html:27
+#: blog/templates/blog/snippets/navbar.html:73
+msgid "Sign In"
+msgstr "Masuk"
+
+#: accounts/templates/accounts/sign_in.html:20
+#: blog/templates/blog/registration/login.html:20
+#: blog/templates/blog/snippets/modal-login.html:6
+msgid "Sign in"
+msgstr "Masuk"
+
+#: accounts/templates/accounts/sign_in.html:37
+#: blog/templates/blog/registration/login.html:61
+#: blog/templates/blog/snippets/modal-login.html:22
+msgid "Remember me"
+msgstr "Ingat saya"
+
+#: accounts/templates/accounts/sign_up.html:3
+#: accounts/templates/accounts/sign_up.html:15
+#: blog/templates/blog/registration/register.html:3
+#: blog/templates/blog/registration/register.html:11
+#: blog/templates/blog/snippets/footer.html:32
+msgid "Sign Up"
+msgstr "Daftar"
+
+#: accounts/templates/accounts/sign_up.html:23
+#: accounts/templates/accounts/sign_up.html:46
+#: blog/templates/blog/registration/register.html:19
+#: blog/templates/blog/registration/register.html:46
+#: blog/templates/blog/snippets/modal-register.html:6
+#: blog/templates/blog/snippets/modal-register.html:38
+msgid "Sign up"
+msgstr "Daftar"
+
+#: accounts/templates/accounts/sign_up.html:66
+#: blog/templates/blog/registration/register.html:66
+#: blog/templates/blog/snippets/modal-register.html:58
+msgid "Have an account?"
+msgstr "Sudah punya akun?"
+
+#: accounts/templates/accounts/sign_up.html:66
+#: blog/templates/blog/registration/register.html:66
+#: blog/templates/blog/snippets/modal-register.html:58
+msgid "Sign in your right now."
+msgstr "Masuk ke akun Anda sekarang."
+
+#: accounts/views.py:28 blog/views.py:18 risset/views.py:22
+msgid "Error"
+msgstr ""
+
+#: accounts/views.py:29 blog/views.py:19 risset/views.py:23
+msgid "There was an error, please try again!"
+msgstr "Terjadi kesalahan, silakan coba lagi!"
+
+#: accounts/views.py:61
+msgid "Activate your Account"
+msgstr "Aktivasi akun anda"
+
+#: accounts/views.py:73 accounts/views.py:104
+msgid "Success"
+msgstr ""
+
+#: accounts/views.py:74
+#, fuzzy
+#| msgid "Thank you for sending us a message"
+msgid "Thank you for signing up and activation sent"
+msgstr "Terima kasih telah mengirimkan pesan kepada kami"
+
+#: accounts/views.py:105
+msgid "You are now logged in!"
+msgstr "Anda sekarang masuk!"
+
+#: accounts/views.py:129
+msgid "Success!   Your account is acctive now."
+msgstr "Berhasil!   Akun Anda sekarang telah aktif."
+
+#: accounts/views.py:132
+#, fuzzy
+#| msgid "Success!   Your account is acctive now."
+msgid "Errors! Your account is active"
+msgstr "Berhasil!   Akun Anda sekarang telah aktif."
+
+#: accounts/views.py:144
+msgid "You are now logged out"
+msgstr "Anda sekarang logout"
+
+#: accounts/views.py:177
+#, fuzzy
+#| msgid "Your subscription has successfully been updated."
+msgid "Your profile has been updated"
+msgstr "Langganan Anda telah berhasil diperbarui."
+
+#: accounts/views.py:207
+msgid "Success! Profile updated."
+msgstr "Berhasil! Profil diperbarui."
+
+#: accounts/views.py:225
+msgid "Your account has been deleted"
+msgstr "Akun Anda telah dihapus"
+
+#: accounts/views.py:273
+#, fuzzy
+#| msgid "Successfully added to favorites."
+msgid "Successfully removed likes"
+msgstr "Berhasil ditambahkan ke favorit."
+
+#: accounts/views.py:280
+#, fuzzy
+#| msgid "Thank you for sending us a message"
+msgid "Thank you for liking the post"
+msgstr "Terima kasih telah mengirimkan pesan kepada kami"
+
+#: accounts/views.py:298
+msgid "Successfully added to favorites."
+msgstr "Berhasil ditambahkan ke favorit."
+
+#: blog/templates/blog/archive.html:96 blog/templates/blog/category.html:98
+#: blog/templates/blog/tag_posts_list.html:105
+msgid "There are no post in the categoty."
+msgstr "Tidak ada postingan dalam kategori"
+
+#: blog/templates/blog/archive.html:118 blog/templates/blog/detail.html:186
+msgid "Back"
+msgstr "Kembali"
+
+#: blog/templates/blog/archive.html:128 blog/templates/blog/detail.html:196
+msgid "Next"
+msgstr "Berikutnya"
+
+#: blog/templates/blog/detail.html:242
+#: blog/templates/blog/snippets/modal-comment.html:39
+msgid "Post Comment"
+msgstr "Kirim Komentar"
+
+#: blog/templates/blog/detail.html:258
+msgid "Responded to :"
+msgstr "Ditanggapi:"
+
+#: blog/templates/blog/detail.html:264
+msgid "Reply"
+msgstr "Balas"
+
+#: blog/templates/blog/detail.html:306 templates/error_page.html:26
+msgid "See also"
+msgstr "Lihat juga"
+
+#: blog/templates/blog/detail.html:365 blog/templates/blog/index.html:95
+#: templates/newsletter/common.html:3
+#: templates/newsletter/newsletter_detail.html:12
+#: templates/newsletter/newsletter_list.html:15
+#: templates/newsletter/newsletter_list.html:33
+#: templates/newsletter/subscription_activate.html:5
+#: templates/newsletter/subscription_activate.html:8
+#: templates/newsletter/subscription_subscribe_activated.html:5
+#: templates/newsletter/subscription_subscribe_activated.html:8
+#: templates/newsletter/subscription_unsubscribe_activated.html:5
+#: templates/newsletter/subscription_unsubscribe_activated.html:8
+#: templates/newsletter/subscription_update_activated.html:5
+#: templates/newsletter/subscription_update_activated.html:8
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: blog/templates/blog/detail.html:368
+msgid ""
+"\n"
+"                        Get information that is informative, motivating and "
+"in accordance with facts. Protect yourself from fraud, and be someone who is "
+"open minded.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Dapatkan informasi yang informatif, memotivasi dan "
+"sesuai dengan fakta. Lindungi diri Anda dari penipuan, dan jadilah seseorang "
+"yang berpikiran terbuka.\n"
+"                        "
+
+#: blog/templates/blog/index.html:97
+msgid ""
+"Get information that is informative, motivating and in accordance with "
+"facts. Protect yourself from fraud, and be someone who is open minded.\n"
+"            "
+msgstr ""
+"Dapatkan informasi yang informatif, memotivasi dan sesuai dengan fakta. "
+"Lindungi diri Anda dari penipuan, dan jadilah seseorang yang berpikiran "
+"terbuka.\n"
+"            "
+
+#: blog/templates/blog/registration/login.html:66
+msgid "Login"
+msgstr "Masuk"
+
+#: blog/templates/blog/registration/register.html:41
+msgid "I accept the conditions of transmitting information"
+msgstr "Saya menerima kondisi pengiriman informasi"
+
+#: blog/templates/blog/search.html:13
+msgid "Search"
+msgstr "Pencarian"
+
+#: blog/templates/blog/search.html:112
+msgid "Posts"
+msgstr "Postingan"
+
+#: blog/templates/blog/search.html:116
+msgid "Nothing found! Change the search query and try again"
+msgstr "Tidak ada yang ditemukan! Ubah kueri penelusuran dan coba lagi"
+
+#: blog/templates/blog/snippets/modal-comment.html:6
+msgid "To"
+msgstr "Ke"
+
+#: blog/templates/blog/snippets/modal-login.html:58
+msgid "Error: Username or Password not corret!"
+msgstr "Kesalahan: Nama Pengguna atau Kata Sandi tidak benar!"
+
+#: blog/templates/blog/snippets/navbar.html:43
+msgid "Portfolio"
+msgstr "Portofolio"
+
+#: blog/templates/blog/snippets/navbar.html:44
+msgid "Shop"
+msgstr ""
+
+#: blog/templates/blog/snippets/navbar.html:66
+msgid "Profile"
+msgstr "Profil"
+
+#: blog/templates/blog/snippets/navbar.html:68
+msgid "Favourite"
+msgstr "Favorit"
+
+#: blog/templates/blog/snippets/navbar.html:69
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign Out"
+msgstr "Keluar"
+
+#: blog/templates/blog/tag_posts_list.html:13
+msgid "Tags"
+msgstr "Tag"
+
+#: blog/views.py:168
+#, fuzzy
+#| msgid "Thank you! Your comments will be approved by us immediately."
+msgid "Thank you! your comments will be approved by us immediately."
+msgstr "Terima kasih! Komentar Anda akan segera kami setujui."
+
+#: blog/views.py:180
+msgid "Thank you! Your comments will be approved by us immediately."
+msgstr "Terima kasih! Komentar Anda akan segera kami setujui."
+
+#: risset/settings/base.py:133
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: risset/settings/base.py:134
+msgid "English"
+msgstr "Inggris"
+
+#: risset/views.py:49
+msgid "Thank you for sending us a message"
+msgstr "Terima kasih telah mengirimkan pesan kepada kami"
+
+#: risset/views.py:54
+msgid "OOPS! Bot suspected"
+msgstr "OOPS! Diduga bot"
+
+#: risset/views.py:139
+msgid "Forbidden (403)"
+msgstr ""
+
+#: risset/views.py:140
+msgid "Access denied, something doesn't match what you're doing."
+msgstr "Akses ditolak, ada yang tidak cocok dengan apa yang Anda lakukan."
+
+#: risset/views.py:148
+msgid "Page not found"
+msgstr "halaman tidak ditemukan"
+
+#: risset/views.py:149
+msgid "Sorry but we couldn't find the page that you are looking for."
+msgstr "Maaf, kami tidak dapat menemukan halaman yang Anda cari."
+
+#: risset/views.py:157
+msgid "Ooops!!! 500"
+msgstr ""
+
+#: risset/views.py:158
+msgid ""
+"Looks like something went wrong!\n"
+"We track these errors automatically, but if the problem persists feel free "
+"to contact us."
+msgstr ""
+"Sepertinya ada yang tidak beres!\n"
+"Kami melacak kesalahan ini secara otomatis, tetapi jika masalah terus berlanjut, silakan"
+"hubungi kami."
+
+#: templates/error_page.html:15
+msgid ""
+"We couldn’t find the page you’re looking for. Try searching or go back to the"
+msgstr ""
+"Kami melacak kesalahan ini secara otomatis, tetapi jika masalah terus berlanjut, silakan"
+
+#: templates/error_page.html:15
+#, fuzzy
+#| msgid "Home"
+msgid "Homepage"
+msgstr "Beranda"
+
+#: templates/newsletter/message/message.html:21
+msgid "Read more"
+msgstr "Baca lebih lajut"
+
+#: templates/newsletter/message/message.html:27
+msgid "Read message online"
+msgstr "Baca pesan online"
+
+#: templates/newsletter/message/message.html:29
+#: templates/newsletter/newsletter_detail.html:23
+#: templates/newsletter/subscription_unsubscribe.html:28
+#: templates/newsletter/subscription_unsubscribe_user.html:23
+msgid "Unsubscribe"
+msgstr "Berhenti berlangganan"
+
+#: templates/newsletter/message/message.txt:15
+msgid "Unsubscribe:"
+msgstr "Berhenti berlangganan:"
+
+#: templates/newsletter/message/subscribe.html:6
+#, python-format
+msgid "Subscription to %(title)s"
+msgstr "Berlangganan ke %(title)s"
+
+#: templates/newsletter/message/subscribe.html:10
+#: templates/newsletter/message/subscribe.txt:1
+#: templates/newsletter/message/unsubscribe.html:9
+#: templates/newsletter/message/unsubscribe.txt:1
+#: templates/newsletter/message/update.html:9
+#: templates/newsletter/message/update.txt:1
+msgid "Sir/Madam"
+msgstr "Bapak/Ibu"
+
+#: templates/newsletter/message/subscribe.html:10
+#: templates/newsletter/message/subscribe.txt:1
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested a subscription to %(title)s.\n"
+"\n"
+"If you would like to confirm your subscription, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Kind regards,"
+msgstr ""
+"Hai %(name)s,\n"
+"\n"
+"Anda, atau seseorang atas nama Anda meminta berlangganan %(title)s.\n"
+"\n"
+"Jika Anda ingin mengonfirmasi langganan Anda, silakan ikuti tautan aktivasi "
+"ini:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Salam Hormat,"
+
+#: templates/newsletter/message/subscribe_subject.txt:1
+msgid "Confirm subscription"
+msgstr "Konfirmasi langganan"
+
+#: templates/newsletter/message/unsubscribe.html:6
+#, python-format
+msgid "Unsubscription from %(title)s"
+msgstr "Berhenti berlangganan dari %(title)s"
+
+#: templates/newsletter/message/unsubscribe.html:9
+#: templates/newsletter/message/unsubscribe.txt:1
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested unsubscription from %(title)s.\n"
+"\n"
+"If you would like to confirm your unsubscription, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Kind regards,"
+msgstr ""
+"Hai %(name)s,\n"
+"\n"
+"Anda, atau seseorang atas nama Anda meminta berhenti berlangganan dari "
+"%(title)s.\n"
+"\n"
+"Jika Anda ingin mengonfirmasi berhenti berlangganan,ikuti tautan aktivasi "
+"ini:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Salam Hormat,"
+
+#: templates/newsletter/message/unsubscribe_subject.txt:1
+msgid "Confirm unsubscription"
+msgstr "Konfirmasi berhenti berlangganan"
+
+#: templates/newsletter/message/update.html:6
+#, python-format
+msgid "Update of subscription to %(title)s"
+msgstr "Pembaruan berlangganan ke %(title)s"
+
+#: templates/newsletter/message/update.html:9
+#: templates/newsletter/message/update.txt:1
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested updating your personal information "
+"for %(title)s.\n"
+"\n"
+"To make changes to your information in our database, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Kind regards,"
+msgstr ""
+"Hai %(name)s,\n"
+"\n"
+"Anda, atau seseorang atas nama Anda meminta memperbarui informasi pribadi "
+"Anda untuk %(title)s.\n"
+"\n"
+"Untuk membuat perubahan pada informasi Anda di database kami, silakan ikuti "
+"tautan aktivasi ini:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Salah Hormat,"
+
+#: templates/newsletter/message/update_subject.txt:1
+msgid "Update information"
+msgstr "Perbarui informasi"
+
+#: templates/newsletter/newsletter_detail.html:5
+msgid "Newsletter detail"
+msgstr "Detail Newsletter"
+
+#: templates/newsletter/newsletter_detail.html:15
+#: templates/newsletter/newsletter_list.html:17
+#: templates/newsletter/subscription_subscribe_user.html:24
+msgid "Subscribe"
+msgstr "Langganan"
+
+#: templates/newsletter/newsletter_detail.html:19
+msgid "Update"
+msgstr "Perbarui"
+
+#: templates/newsletter/newsletter_detail.html:29
+#: templates/newsletter/submission_archive.html:18
+msgid "Back to list"
+msgstr "Kembali ke daftar"
+
+#: templates/newsletter/newsletter_list.html:5
+msgid "Newsletter list"
+msgstr "Daftar Newsletter"
+
+#: templates/newsletter/newsletter_list.html:28
+msgid "Update subscriptions"
+msgstr "Perbarui langganan"
+
+#: templates/newsletter/submission_archive.html:5
+#: templates/newsletter/submission_archive.html:10
+msgid "Newsletter archive"
+msgstr "Arsip Newsletter"
+
+#: templates/newsletter/subscription_activate.html:5
+#: templates/newsletter/subscription_activate.html:8
+#: templates/newsletter/subscription_subscribe_activated.html:5
+#: templates/newsletter/subscription_subscribe_activated.html:8
+#: templates/newsletter/subscription_unsubscribe_activated.html:5
+#: templates/newsletter/subscription_unsubscribe_activated.html:8
+#: templates/newsletter/subscription_update_activated.html:5
+#: templates/newsletter/subscription_update_activated.html:8
+msgid "activate"
+msgstr "aktifkan"
+
+#: templates/newsletter/subscription_subscribe.html:5
+#: templates/newsletter/subscription_subscribe.html:8
+#: templates/newsletter/subscription_subscribe_email_sent.html:5
+#: templates/newsletter/subscription_subscribe_email_sent.html:8
+#: templates/newsletter/subscription_subscribe_user.html:5
+#: templates/newsletter/subscription_subscribe_user.html:8
+msgid "Newsletter subscribe"
+msgstr "Berlangganan Newsletter"
+
+#: templates/newsletter/subscription_subscribe.html:11
+#: templates/newsletter/subscription_unsubscribe.html:11
+#: templates/newsletter/subscription_update.html:11
+msgid ""
+"Due to a technical error we were not able to submit your confirmation email. "
+"This could be because your email address is invalid."
+msgstr ""
+"Due to a technical error we were not able to submit your confirmation email. "
+"Ini bisa jadi karena alamat email Anda tidak valid."
+
+#: templates/newsletter/subscription_subscribe_activated.html:10
+msgid "Your subscription has successfully been activated."
+msgstr "Langganan Anda telah berhasil diaktifkan."
+
+#: templates/newsletter/subscription_subscribe_email_sent.html:10
+msgid ""
+"Your subscription request was successfully received and an activation email "
+"has been sent to you. In that email you will find a link which you need to "
+"follow in order to activate your subscription."
+msgstr ""
+"Permintaan berlangganan Anda berhasil diterima dan email aktivasitelah "
+"dikirimkan kepada Anda. Dalam email itu Anda akan menemukan tautan yang Anda "
+"butuhkan untuk ikuti untuk mengaktifkan langganan Anda."
+
+#: templates/newsletter/subscription_subscribe_user.html:19
+msgid "Do you want to subscribe to this newsletter?"
+msgstr "Apakah Anda ingin berlangganan buletin ini?"
+
+#: templates/newsletter/subscription_unsubscribe.html:5
+#: templates/newsletter/subscription_unsubscribe.html:8
+#: templates/newsletter/subscription_unsubscribe_email_sent.html:5
+#: templates/newsletter/subscription_unsubscribe_email_sent.html:8
+#: templates/newsletter/subscription_unsubscribe_user.html:5
+#: templates/newsletter/subscription_unsubscribe_user.html:8
+msgid "Newsletter unsubscribe"
+msgstr "Berhenti berlangganan buletin"
+
+#: templates/newsletter/subscription_unsubscribe_activated.html:10
+msgid "You have successfully been unsubscribed."
+msgstr "Anda telah berhasil berhenti berlangganan."
+
+#: templates/newsletter/subscription_unsubscribe_email_sent.html:10
+msgid ""
+"Your unsubscription request has successfully been received. An email has "
+"been sent to you with a link you need to follow in order to confirm your "
+"unsubscription."
+msgstr ""
+"Permintaan berhenti berlangganan Anda telah berhasil diterima. Sebuah email "
+"telah dikirimkan kepada Anda dengan tautan yang harus Anda ikuti untuk "
+"mengonfirmasi berhenti berlangganan."
+
+#: templates/newsletter/subscription_unsubscribe_user.html:20
+msgid "Do you want to unsubscribe from this newsletter?"
+msgstr "Apakah Anda ingin berhenti berlangganan buletin ini?"
+
+#: templates/newsletter/subscription_update.html:5
+#: templates/newsletter/subscription_update.html:8
+#: templates/newsletter/subscription_update_email_sent.html:5
+#: templates/newsletter/subscription_update_email_sent.html:8
+msgid "Newsletter update"
+msgstr "Perbarui Newsletter"
+
+#: templates/newsletter/subscription_update_activated.html:10
+msgid "Your subscription has successfully been updated."
+msgstr "Langganan Anda telah berhasil diperbarui."
+
+#: templates/newsletter/subscription_update_email_sent.html:10
+msgid ""
+"Your update request was successfully received and an activation email has "
+"been sent to you. In that email you will find a link which you need to "
+"follow in order to update your subscription."
+msgstr ""
+"Permintaan pembaruan Anda berhasil diterima dan email aktivasi telah "
+"dikirimkan kepada Anda. Dalam email itu Anda akan menemukan tautan yang Anda "
+"butuhkan untuk ikuti untuk memperbarui langganan Anda."
+
+#: templates/shop/index.html:620
+#, fuzzy
+#| msgid "Update information"
+msgid "More Information"
+msgstr "Perbarui informasi"
+
+#: templates/shop/index.html:621
+#, fuzzy
+#| msgid "Subscribe"
+msgid "Subscribe Now!"
+msgstr "Langganan"
+
+#: templates/shop/index.html:649
+msgid "Get Started"
+msgstr "Memulai"
+
+#: templates/shop/index.html:697
+#, fuzzy
+#| msgid "Subscribe"
+msgid "Subscribe now"
+msgstr "Langganan"
+
+#: templates/shop/index.html:704
+#, fuzzy
+#| msgid "*Email.."
+msgid "Your Email..."
+msgstr "*Email.."
+
+#: templates/shop/index.html:709
+msgid "Get Notified"
+msgstr "Dapatkan Pemberitahuan"
+
+#~ msgid "Login Success!    Welcome to your profile"
+#~ msgstr "Berhasil Masuk!    Selamat datang di profil Anda"
+
+#~ msgid "Please use another Email, that is already taken"
+#~ msgstr "Silakan gunakan Email lain,Email ini sudah digunakan"
+
+#~ msgid "Success! Deleted your account."
+#~ msgstr "Berhasil! Profil diperbarui."
+
+#~ msgid "Success!    Registered succesfully and activation sent"
+#~ msgstr "Berhasil!    Berhasil terdaftar dan aktivasi terkirim"
+
+#~ msgid "Logout"
+#~ msgstr "Keluar"

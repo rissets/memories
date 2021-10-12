@@ -1,0 +1,56 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$xoPY0mVKqHc8KWulAJRam5$qOpW2zqK4PWbugUij3tUwc9l4oAiz0ektxZS3QswJj4=",
+            "last_login": "2021-08-23T12:42:35.803Z",
+            "is_superuser": true,
+            "username": "mr.danangharis@gmail.com",
+            "first_name": "Danang Haris",
+            "last_name": "Setiawan",
+            "email": "mr.danangharis@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-08-19T16:25:20Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$xIsv1QtFJ2gjW3gHyCRREC$78oEcp4OJJxhUGPlGGMecdH0z3ez1cKke4ghW8L5T28=",
+            "last_login": "2021-08-23T08:25:54.528Z",
+            "is_superuser": false,
+            "username": "mr.danangharissetiawan@gmail.com",
+            "first_name": "Danang Haris",
+            "last_name": "Setiawan",
+            "email": "mr.danangharissetiawan@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-08-20T17:36:41Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$bmIo0Ss28WmZrfMEKVXFqR$KNs+DTy9NPOwKTpiSOp3kwl97XxHJSVDI/KWX0Sa6m8=",
+            "last_login": "2021-08-23T12:45:33.543Z",
+            "is_superuser": false,
+            "username": "111202013179@mhs.dinus.ac.id",
+            "first_name": "Mahasiswa",
+            "last_name": "Udinus",
+            "email": "111202013179@mhs.dinus.ac.id",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-08-22T05:10:38.581Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

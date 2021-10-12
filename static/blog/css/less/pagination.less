@@ -1,0 +1,75 @@
+// out: ../pagination.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.pagination {
+    .block100;
+    margin-top: 30px;
+    
+    &-links {}
+    
+    .extend {
+        pointer-events: none;
+    }
+    
+    &.centered {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.pagination-links {
+    .block;
+    width: auto;
+}
+
+.pag-link {
+    width: 38px;
+    height: 38px;
+    .transition;
+    display: block;
+    float: left;
+    border-radius: 50%;
+    font-size: 16px;
+    .Medium;
+    line-height: 38px;
+    text-align: center;
+    margin-right: 8px;
+    
+    &:last-child {
+        margin-right: 0;
+    }
+    
+    &.current {
+        color: #fff;
+        background: @theme-color;
+        pointer-events: none;
+    }
+    
+    
+}
+
+.dark {
+    .pag-link.current {
+        background: @dark-child;
+    }
+}
+
+.desktop {
+    .pag-link {
+        &:hover {
+            background: #DBDDE1;
+        }
+    }
+    
+    .dark {
+        .pag-link:hover {
+            color: #1D1D1D;
+        }
+    }
+}

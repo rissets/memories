@@ -1,0 +1,72 @@
+{% extends 'accounts/base.html' %} {% load static i18n %}
+
+{% block title %}Profile - Memories{% endblock title %}
+
+{% block contents %}
+
+<div class="page-wrap profile-page">
+    <div class="page-wrap-content">
+        <div class="breadcrumbs">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    <a href="{% url 'blog:home' %}">{% trans "Home" %}</a> / <a href="#">{% trans "Account" %}</a> / <span class="current">{{ user.username|title }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="profile-section">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    <h1 class="page-title">{% trans "Setting" %}</h1>
+                    <div class="profile-settings">
+                        <form id="profileform" action="{% url 'accounts:profile' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="profile-settings-userpic">
+                                <div class="author-image">
+                                    <img src="{{ request.user.profile.avatar.url }}" alt="" class="image-cover">
+                                </div>
+                                <div class="select-file">
+                                <input type="file" name="avatar" accept="image/*" class=" input-file" id="profile-userpic">
+                                    {% comment %} {{ profile_form.avatar }} {% endcomment %}
+                                    <label for="profile-userpic" class="file-label"><span>{% trans "Change your Avatar" %}</span></label>
+                                </div>
+                            </div>
+                            <div class="profile-settings-data">
+                                <div class="fields">
+                                    <div class="input-wrap white-label name-field">
+                                        {{ user_form.first_name }}
+                                    </div>
+                                    <div class="input-wrap white-label email-field">
+                                        {{ user_form.last_name }}
+                                    </div>
+                                    <div class="input-wrap white-label name-field">
+                                        {{ user_form.username }}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="block-columns">
+                                <div class="block-column">
+                                    <button type="submit" class="btn">
+                                        <span>{% trans "Save Setting" %}</span>
+                                    </button>
+                                </div>
+                                <div class="block-column">
+                                    <a href="{% url 'accounts:delete_user' %}" class="btn" style="background-color: red;">{% trans "Delete User" %}</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock contents %}
+
+{% block extra_scripts %}
+<script>
+    var profile_redirect = "{% url 'accounts:profile' %}"
+</script>
+{% endblock extra_scripts %}

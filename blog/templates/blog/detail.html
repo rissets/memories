@@ -1,0 +1,512 @@
+{% extends 'blog/base.html' %} {% load static i18n compress %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block head_meta %}
+    {% include "meta/meta.html" %}
+{% endblock head_meta %}
+
+{% block extra_styles %}
+{% compress css %}
+<link rel="stylesheet" href="{% static 'blog/css/default.min.css' %}">
+{% endcompress %}
+{% compress js %}
+<script src="{% static 'blog/js/highlight.min.js' %}"></script>
+{% endcompress %}
+
+<script>hljs.highlightAll();</script>
+<style>
+.d-none {
+    display: None;
+}
+</style>
+{% endblock extra_styles %}
+
+{% block contents %}
+
+
+<div class="page-wrap">
+    <div class="page-wrap-content" role="main" itemscope itemprop="mainContentOfPage">
+
+        <div class="breadcrumbs" role="breadcrumb" itemscope itemprop="breadcrumb">
+            <div class="wrap wrap-center">
+                <div class="wrap_float" itemscope itemtype="https://schema.org/breadcrumb">
+                    <a href="{% url 'blog:home' %}">{% trans "Home" %}</a> / <a href="{% url 'blog:category' post.category %}">{{ post.category|title }}</a> / <span class="current">{{ post.title|title }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="post-single-wrap sticky-parent">
+
+            <div class="share-block">
+                <div class="share-block-main js-share-block-main">
+                    <div class="socials">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="soc-link" data-title="Facebook">
+                            <span class="soc-icon">
+                                <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+                            </span>
+                        </a>
+                        <a href="http://twitter.com/share?text={{ article.title }}. &url={{ request.build_absolute_uri }}" target="_blank" class="soc-link" data-title="Twitter">
+                            <span class="soc-icon">
+                                <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+                            </span>
+                        </a>
+                        <a href="http://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}&description={{post.title}}" class="soc-link" data-title="Pinterest">
+                            <span class="soc-icon">
+                                <img src="{% static 'blog/img/pinterest-icon.svg' %}" class="img-svg" alt="">
+                            </span>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}"  target="_blank" class="soc-link" data-title="Behance">
+                            <span class="soc-icon">
+                                <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+                            </span>
+                        </a>
+                        <div class="soc-link show-more-socials" style="display: none;"></div>
+                    </div>
+                    <div class="share-block-item js-anchor link-to-comments" data-href="#comments-section">
+                        <div class="comments-count">
+                            {% with allcomments.count as total_comment %}
+                            <span>{{ total_comment }}</span>
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+                <div class="share-block-item mobile-item js-mobile-share-show mobile-share-show-btn">
+                    <div class="show-mobile-icon"></div>
+                </div>
+                {% if request.user.is_authenticated %}
+                <div class="share-block-item add-to-favorites">
+                    <div class="favorites-tag js-add-to-fav {% if fav %}added{% endif %}" data-id="{{ post.id }}">
+                            <i class="is-added bouncy"></i>
+                            <i class="not-added bouncy"></i>
+                            <span class="fav-overlay"></span>
+                    </div>
+                </div>
+                
+                <div class="share-block-item add-to-likes" style="margin-top:10px;">
+                    <div class="likes-tag js-add-to-like {% if like %}added{% endif %} " data-id="{{ post.id }}">
+                            <i class="is-added bouncy"></i>
+                            <i class="not-added bouncy"></i>
+                            <span class="fav-overlay"></span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+
+            <div class="single-header" itemscope itemtype="http://schema.org/Article">
+                <div class="wrap wrap-center">
+                    <div class="wrap_float">
+                        <div class="post-tags">
+                        {% for tag in post.tags.all %}
+                            {% if forloop.counter <= 2 %}
+                            <a href="{% url 'blog:tag' tag %}" class="tag">{{ tag }}</a>
+                            {% else %}
+                            <a href="{% url 'blog:tag' tag %}" class="hashtag">#{{ tag }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <h1 class="page-title" itemprop="name" headline>
+                            {{ post.title|title }}
+                        </h1>
+                        <div class="post-info">
+                            <div class="post-author post-info-author">
+                                <div class="author-image">
+                                    <img src="{{ post.author.profile.avatar.url }}" alt="" class="image-cover">
+                                </div>
+                                <a rel="author" itemprop="url" href="https://risset.me" itemscope itemtype="https://schema.org/author">
+                                <span itemprop="author" itemprop="name">{% if post.author.first_name %}{{ post.author.first_name }} {{ post.author.last_name }}{% else %}{{ post.author.username }}{% endif %}</span></a>
+                            </div>
+                            <div class="post-date post-info-date" itemprop="datePublished" datetime="{{ post.pub_date|date:"d F Y"}}">
+                                {{ post.pub_date|date:"d F Y"}}
+                            </div>
+
+                            <div class="post-words post-info-words" itemprop="wordCount" itemscope itemtype="https://schema.org/wordCount">
+                                {% if LANGUAGE_CODE == 'id' %}
+                                {{post.count_words}} kata
+                                {% else %}
+                                {{ post.count_words }} word{{ post.count_words|pluralize }}
+                                {% endif %}
+                                
+                            </div>
+                            <div class="post-date post-info-date">
+                                {% if LANGUAGE_CODE == 'id' %}
+                                {{ post.read_time }} menit membaca
+                                {% else %}
+                                {{ post.read_time }} min{{ post.read_time|pluralize }} read
+                                {% endif %}
+                            </div>
+
+                            <div class="post-views post-info-views">
+                            {% if LANGUAGE_CODE == 'id' %}
+                                {{ post.views}} dilihat
+                            {% else %}
+                                {{ post.views }} view{{ post.views|pluralize }}
+                            {% endif %}
+                            </div>
+
+                            {% if request.user.is_authenticated %}
+                            <div class="post-likes post-info-likes">
+                                <span id="like_count">{{ post.like_count }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="post-description">
+                            <p>
+                                {{ post.excerpt }}
+                            </p>
+                        </div>
+                        {% if post.image %}
+                        <div class="post-image-large wide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <img src="{{ post.image.url }}" itemprop="thumbnail" alt="{{ post.image }}">
+                            <figcaption itemprop="caption description" class="caption-text">{{ post.image_credit }}</figcaption>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-content wp-content" itemprop="articleBody" itemscope itemtype="https://schema.org/articleBody">
+                <div class="wrap wrap-center">
+                    <div class="wrap_float" >
+                        <p itemtype="Article">
+                            {{ post.content|safe }}
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="articles-controls" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            {% if post.get_previous_by_date_created %}
+            <a itemprop="url" href="{% url 'blog:detail' post.get_previous_by_date_created.slug %}" class="articles-controls-item prev-article">
+                <div class="articles-controls-item-wrapper">
+                    <div class="control-direction">{% trans "Back" %}</div>
+                    <h3 class="post-title" itemprop="name">
+                        {{ post.get_previous_by_date_created.title }}
+                    </h3>
+                </div>
+            </a>
+            {% endif %}
+            {% if post.get_next_by_date_created %}
+            <a itemprop="url" href="{% url 'blog:detail' post.get_next_by_date_created.slug %}" class="articles-controls-item next-article">
+                <div class="articles-controls-item-wrapper">
+                    <div class="control-direction">{% trans "Next" %}</div>
+                    <h3 class="post-title" itemprop="name">
+                        {{ post.get_next_by_date_created.title }}
+                    </h3>
+                </div>
+            </a>
+            {% endif %}
+        </div>
+
+        <div class="comments-section" id="comments-section">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    <div class="comments-section" id="comments-section">
+                        <div class="wrap wrap-center">
+                            <div class="wrap_float">
+                                {% with allcomments.count as total_comment %}
+                                {% if LANGUAGE_CODE == 'id' %}
+                                <h2 class="title"><span class="comments-count">{{ total_comment }}</span> Komentar</h2>
+                                {% else %}
+                                <h2 class="title">Comment{{ total_comment|pluralize}} <span class="comments-count">{{ total_comment }}</span></h2>
+                                {% endif %}
+                                {% endwith %}
+
+                                <form id="myForm" action="{% url 'blog:detail' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                <div class="comments-form">
+                                    <div class="input-wrap textarea-wrap white-label comment-field">
+                                    <input type="hidden" name="parent">
+                                        <textarea class="input textarea" required placeholder="Write a comment" name="content"></textarea>
+                                    </div>
+                                    {% if request.user.is_authenticated %}
+                                    <div class="input-wrap white-label name-field">
+                                        <input type="hidden" class="input" required name="name" value="{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}">
+                                    </div>
+                                    <div class="input-wrap white-label email-field">
+                                        <input type="hidden" class="input" required name="email" value="{{request.user.email}}">
+                                    </div>
+                                    {% else %}
+                                    <div class="input-wrap white-label name-field">
+                                        <input type="text" class="input" required placeholder="Name*" name="name">
+                                    </div>
+                                    <div class="input-wrap white-label email-field">
+                                        <input type="email" class="input" required placeholder="Email*" name="email">
+                                    </div>
+                                    {% endif %}
+                                    <button type="submit" class="btn submit submit-btn">
+                                        <span>{% trans "Post Comment" %}</span>
+                                    </button>
+                                </div>
+                                </form>
+
+                                {% load mptt_tags %}
+                                <div class="comments-list">
+                                    {% recursetree comments %}
+                                    <div class="comments-list-item">
+                                        <div id="{{ node.id }}" class="comment-item reply" itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
+                                            <div class="comment-item-userpic">
+                                                <img src="{% static 'blog/img/man.jpg' %}" alt="" class="image-cover">
+                                            </div>
+                                            <div class="comment-item-name" itemprop="creator" itemscope itemtype="https://schema.org/author">{{ node.name }}</div>
+                                            <div class="comment-item-date" itemprop="commentTime" datetime="{{node.pub_date}}">{{ node.pub_date }}</div>
+                                            {% if node.level > 0 %}
+                                            <div class="comment-item-reply-for">{% trans "Responded to :" %} {{ node.parent.name }}</div>
+                                            {% endif %}
+                                            <div class="comment-item-text" itemprop="commentText">
+                                                {{ node.content }}
+                                            </div>
+                                            {% if node.level < 1 %}
+                                            <a class="reply-link getModal" data-href="#reply-comment{{node.id}}">{% trans "Reply" %}</a>
+                                            {% endif %}
+                                        </div>
+
+                                        {% if not node.is_leaf_node %}
+                                        <div class="comments-list">
+                                            {{ children }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    {% include 'blog/snippets/modal-comment.html' %}
+                                    {% endrecursetree %}
+                                </div>
+
+                                {% if comments.has_other_pages %}
+                                <div class="pagination centered">
+                                    <div class="pagination-links">
+                                        {% for num in comments.paginator.page_range %}
+                                        {% if comments.number == num %}
+                                        <a href="#" class="pag-link current">{{ num }}</a>
+                                        {% else %}
+                                        <a href="?page={{num}}" class="pag-link">{{num}}</a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+{% if related_posts %}
+<div class="other-posts-section section">
+    <div class="wrap wrap-center">
+        <div class="wrap_float">
+            <h2 class="title">{% trans "See also" %}</h2>
+            <div class="arrows">
+                <div class="arrow prev"></div>
+                <div class="arrow next"></div>
+            </div>
+            <div class="section-content">
+                <div class="other-posts-slider" id="js-other-posts-slider">
+                    {% for related_post in related_posts %}
+                    {% if related_post.image %}
+                    <a href="{{ related_post.get_absolute_url }}" class="other-posts-slider-item">
+                        <img src="{{ related_post.image.url }}" alt="" class="post-bg-img">
+                        <div class="other-post-info">
+                            <div class="post-tags">
+                            {% for related_post_tag in related_post.tags.all %}
+                                <div class="tag">{{related_post_tag}}</div>
+                            {% endfor %}
+                            </div>
+                            <h3 class="post-title">
+                                {{ related_post.title|title }}
+                            </h3>
+                            <div class="post-date post-info-date">
+                                {{ related_post.pub_date|date:"d F Y"}}
+                            </div>
+                        </div>
+                    </a>
+                    {% else %}
+                    <a href="{{ related_post.get_absolute_url }}" class="other-posts-slider-item without-bg">
+                        <div class="other-post-info">
+                            <div class="post-tags">
+                                {% for related_post_tag in related_post.tags.all %}
+                                <div class="tag">{{related_post_tag}}</div>
+                                {% endfor %}
+                            </div>
+                            <h3 class="post-title">
+                                {{ related_post.title|title }}
+                            </h3>
+                            <div class="post-excerption">
+                                {{ related_post.excerpt }}
+                            </div>
+                            <div class="post-date post-info-date">
+                                {{ related_post.pub_date|date:"d F Y"}}
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="newsletter-section section">
+    <div class="wrap">
+        <div class="wrap_float">
+            <div class="wrap wrap-center">
+                <div class="subscribe-form-block">
+                    <h2 class="title">
+                        {% trans "Newsletter" %}
+                    </h2>
+                    <div class="subtitle">
+                        {% blocktrans %}
+                        Get information that is informative, motivating and in accordance with facts. Protect yourself from fraud, and be someone who is open minded.
+                        {% endblocktrans %}
+                    </div>
+                    {% include 'newsletter/newsletter_form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div id="success-message" class="bottom-message {{message.tags}}-message visible">
+        <span>
+            {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    
+{% endblock contents %}
+
+{% block extra_scripts %}
+<script>
+
+
+jQuery("#myForm").submit(function (e) {
+    var form = $("#myForm");
+    event.preventDefault();
+
+    var formdata = form.serialize()
+    // var formdata = new FormData(this);
+    $.ajax({
+        url: form.attr("action"),
+        method: form.attr("method"),
+        data: formdata,
+        
+        success: function (json) {
+            if (json["result"] == "Success") {
+                var redirect = false
+                setTimeout(function () {
+                    $('#myForm').trigger("reset");
+                    
+                }, 2700);
+                
+
+            }
+            else {
+                var redirect = false
+            }
+            ShowAlert(json["result"], json["message"], json["result"].toLowerCase(), redirect);
+        },
+        error: function (xhr) {
+            ShowAlert("Error", "There was an error, please try again", "error", false);
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+    })
+});
+
+
+
+jQuery(".js-add-to-fav").on("click", function (e) {
+    e.preventDefault();
+    var fav_id = jQuery(".js-add-to-fav").attr("data-id");
+    $.ajax({
+        type: 'GET',
+        url: "{% url 'accounts:favourite_add' %}",
+        data: {postfavid:fav_id},
+        success: function (json) {
+            if (json["result"] == "Success") {
+                var redirect = false
+                setTimeout(function () {
+                    jQuery(".js-add-to-fav").toggleClass('added');
+                    
+                }, 2600);
+                
+            }
+            else {
+                var redirect = false
+                setTimeout(function () {
+                    jQuery(".js-add-to-fav").removeClass('added');
+                    
+                }, 2600);
+            }
+            ShowAlert(json["result"], json["message"], json["result"].toLowerCase(), redirect);
+        },
+        error: function (xhr) {
+            ShowAlert("Error", "There was an error, please try again", "error", false);
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+        });
+});
+
+
+jQuery(".js-add-to-like").on('click', function (e) {
+    e.preventDefault();
+    var like_id = jQuery(".js-add-to-like").attr('data-id');
+    $.ajax({
+        type: 'POST',
+        url: '{% url "accounts:like" %}',
+        data: {
+            postid: like_id,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            action: 'post'
+        },
+
+        success: function (json) {
+            if (json["result"] == "Success") {
+                var redirect = false
+                setTimeout(function () {
+                    jQuery(".js-add-to-like").toggleClass('added');
+                    document.getElementById("like_count").innerHTML = json['result_like']
+                }, 2600);
+                
+            }
+            else {
+                var redirect = false
+                setTimeout(function () {
+                    jQuery(".js-add-to-like").removeClass('added');
+                    document.getElementById("like_count").innerHTML = json['result_like']
+                }, 2600);
+            }
+            ShowAlert(json["result"], json["message"], json["result"].toLowerCase(), redirect);
+        },
+        error: function (xhr) {
+            ShowAlert("Error", "There was an error, please try again", "error", false);
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+    
+    });
+});
+
+
+setTimeout(function () {
+    jQuery("#success-message").addClass("visible");
+}, 1000);
+
+setTimeout(function () {
+    jQuery("#success-message").removeClass("visible");
+}, 4000);
+
+</script>
+
+
+{% endblock extra_scripts %}

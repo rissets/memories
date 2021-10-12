@@ -1,0 +1,183 @@
+// out: ../profile.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.profile-settings {
+    &-userpic {
+        height: 76px;
+        position: relative;
+        padding-left: 92px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        
+        .author-image {
+            width: 76px;
+            height: 76px;
+        }
+    }
+    
+    &-data {
+        .input {
+            border-color: #DCDEE1;
+            background: none;
+        }
+        
+        .fields {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .input-wrap {
+            width: 360px;
+            margin-top: 22px;
+            
+            &.password-field {
+                .input {
+                    background: @light-child;
+                    border-color: @light-child;
+                }
+                
+                &.active .input {
+                    background: #fff;
+                    border-color: #DCDEE1;
+                }
+            }
+        }
+    }
+    
+    .btn {
+        margin-top: 40px;
+    }
+}
+
+.password-field {
+    .input {
+        padding-right: 55px;
+    }
+}
+
+.select-file {
+    width: auto;
+    
+    
+    .input-file {
+        display: none;
+    }
+    
+    .file-label {
+        width: auto;
+        color: @theme-color;
+        display: block;
+        .pointer;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.show-password-btn {
+    height: 57px;
+    width: 57px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    
+    &:before {
+        width: 20px;
+        height: 16px;
+        background: url(../img/password-icon.svg) center center no-repeat;
+        background-size: contain;
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        margin-top: -8px;
+        margin-left: -10px;
+        display: none;
+    }
+    
+    &:after {
+        width: 20px;
+        height: 16px;
+        background: url(../img/password-icon-hidden.svg) center center no-repeat;
+        background-size: contain;
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        margin-top: -8px;
+        margin-left: -10px;
+    }
+    
+    &.visible-status {
+        &:before {
+            display: block;
+        }
+        
+        &:after {
+            display: none;
+        }
+    }
+}
+
+
+.dark {
+    .profile-settings-data .input {
+        border-color: #3c3c3c;
+        background: none;
+    }
+    
+    .profile-settings-data .input-wrap.password-field {
+        .input {
+            background: #3c3c3c;
+            border-color: #3c3c3c;
+        }
+        
+        &.active {
+            .input {
+                background: none;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1230px) {
+    .profile-settings-data .input-wrap {
+        width: 316px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .profile-section {
+        .wrap-center {
+            max-width: 720px;
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .profile-settings-data .input-wrap {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-settings-data .input-wrap {
+        margin-top: 14px;
+    }
+    
+    .profile-settings .btn {
+        margin-top: 30px;
+        width: 100%;
+    }
+}

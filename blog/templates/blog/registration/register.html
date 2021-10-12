@@ -1,0 +1,75 @@
+{% extends 'blog/base.html' %} {% load static i18n %}
+
+{% block title %}{% trans "Sign Up" %} - Memories{% endblock title %}
+
+{% block contents %}
+<div class="page-wrap profile-page">
+    <div class="page-wrap-content">
+        <div class="breadcrumbs">
+            <div class="wrap wrap-center">
+                <div class="wrap_float">
+                    <a href="{% url 'blog:home' %}">{% trans "Home" %}</a> / <a href="#">{% trans "Account" %}</a> / <span class="current">{% trans "Sign Up" %}</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_default modal_login" style="margin: 0 auto;">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="wrap wrap-center">
+                        <h2 class="title">{% trans "Sign up" %}</h2>
+                            <div class="modal-form">
+                                <form action="{% url 'accounts:register' %}" method="post">
+                                {% csrf_token %}
+                                    <div class="input-wrap white-label">
+                                        <input type="text" class="input" name="{{ form.username.name }}" placeholder="Username">
+                                    </div>
+                                    <div class="input-wrap white-label">
+                                        <input type="text" class="input" name="{{ form.email.name }}" placeholder="Email">
+                                    </div>
+                                    <div class="input-wrap white-label password-field">
+                                        <input type="password" class="input password-input" name="{{ form.password.name}}" placeholder="Password">
+                                        <button class="show-password-btn"></button>
+                                    </div>
+                                    <div class="input-wrap white-label password-field">
+                                        <input type="password" class="input password-input" name="{{ form.password2.name}}" placeholder="Repeat Password">
+                                        <button class="show-password-btn"></button>
+                                    </div>
+                                    <div class="agreement">
+                                        <input type="checkbox" class="agreement-checkbox" id="agree-1">
+                                        <label for="agree-1" class="agreement-label">
+                                            <span>
+                                                {% trans "I accept the conditions of transmitting information" %}
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn submit-btn">
+                                        <span>{% trans "Sign up" %}</span>
+                                    </button>
+                                    <div class="authorization-socials">
+                                        <div class="authorization-socials-variants">
+                                            <div class="socials">
+                                                <div class="soc-link">
+                                                    <img src="{% static 'blog/img/facebook-icon.svg' %}" class="img-svg" alt="">
+                                                </div>
+                                                <div class="soc-link">
+                                                    <img src="{% static 'blog/img/twitter-soc-icon.svg' %}" class="img-svg" alt="">
+                                                </div>
+                                                <div class="soc-link">
+                                                    <img src="{% static 'blog/img/behance-icon.svg' %}" class="img-svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-info">
+                                <p>{% trans "Have an account?" %} <a href="{% url 'accounts:login' %}">{% trans "Sign in your right now." %}</a></p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock contents %}

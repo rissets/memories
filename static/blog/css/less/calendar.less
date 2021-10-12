@@ -1,0 +1,132 @@
+// out: ../calendar.css, compress: false
+
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.ui-datepicker {
+    width: 310px;
+    background: #fff;
+    padding: 22px;
+    -webkit-box-shadow: 0px 3px 20px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 3px 20px 0px rgba(0,0,0,0.37);
+    box-shadow: 0px 3px 20px 0px rgba(0,0,0,0.37);
+    border-radius: 10px;
+}
+
+.ui-datepicker-header {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    position: relative;
+    font-size: 19px;
+    .Medium;
+    margin-bottom: 15px;
+    
+    a {
+        position: absolute;
+        
+        &.ui-datepicker-prev {
+            left: 0;
+        }
+        
+        &.ui-datepicker-next {
+            right: 0;
+        }
+    }
+}
+
+.ui-datepicker-calendar {
+    width: 100%;
+    
+    th {
+        span {
+            border-radius: 6px;
+            border: 1px solid #DCDEE1;
+            width: 32px;
+            height: 32px;
+            display: block;
+            line-height: 30px;
+            font-size: 13px;
+            .Medium;
+        }
+    }
+    
+    td {
+        a {
+            width: 32px;
+            height: 32px;
+            display: block;
+            border-radius: 6px;
+            background: #FAFAFA;
+            font-size: 13px;
+            line-height: 32px;
+            text-align: center;
+            .Medium;
+            
+            &:hover {
+                background: @theme-color;
+                color: #fff;
+            }
+        }
+        
+        &.ui-datepicker-today {
+            a {
+                background: #DBDDE1;
+                
+                &:hover {
+                    background: @theme-color;
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .ui-datepicker {
+        background: @dark-parent;
+    }
+    
+    .ui-datepicker-calendar td a {
+        background: @dark-child;
+    }
+    
+    .ui-datepicker-calendar th span {
+        border-color: #3C3C3C;
+    }
+    
+    .ui-datepicker-calendar td.ui-datepicker-today a {
+        background: #828282;
+    }
+    
+    .ui-datepicker-calendar td a {
+        &:hover {
+            background: @theme-color;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ui-datepicker {
+        left: 0 !important;
+        width: 100%;
+    }
+    
+    .ui-datepicker-calendar td a,
+    .ui-datepicker-calendar th span {
+        width: 100%;
+        height: 10vw;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .locked-by-datepicker {
+        overflow: hidden;
+    }
+}

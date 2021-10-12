@@ -1,0 +1,8 @@
+{% load i18n %}
+{% autoescape off %}
+{% trans "Hello" %} {{ user.username }}
+
+{% trans "Please clink the link bellow  to activate your account" %}
+
+http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+{% endautoescape %}

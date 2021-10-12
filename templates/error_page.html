@@ -1,0 +1,78 @@
+{% extends 'blog/base.html' %}
+{% load static i18n %}
+{% block title %}{{title}}{% endblock title %}
+{% block contents %}
+<div class="page-wrap page-404">
+    <div class="archive-header">
+        <div class="wrap wrap-center">
+            <div class="wrap_float">
+                <h1 class="page-title">{{title}}</h1>
+                <div class="text">
+                    <p>
+                        {{description}}
+                    </p>
+                    <p>
+                        {% trans "We couldn’t find the page you’re looking for. Try searching or go back to the" %} <a href="{% url 'blog:home' %}">{% trans "Homepage" %}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if posts %}
+<div class="other-posts-section section">
+    <div class="wrap wrap-center">
+        <div class="wrap_float">
+            <h2 class="title">{% trans "See also" %}</h2>
+            <div class="arrows">
+                <div class="arrow prev"></div>
+                <div class="arrow next"></div>
+            </div>
+            <div class="section-content">
+                <div class="other-posts-slider" id="js-other-posts-slider">
+                    {% for related_post in posts %}
+                    {% if related_post.image %}
+                    <a href="{{ related_post.get_absolute_url }}" class="other-posts-slider-item">
+                        <img src="{{ related_post.image.url }}" alt="" class="post-bg-img">
+                        <div class="other-post-info">
+                            <div class="post-tags">
+                            {% for related_post_tag in related_post.tags.all %}
+                                <div class="tag">{{related_post_tag}}</div>
+                            {% endfor %}
+                            </div>
+                            <h3 class="post-title">
+                                {{ related_post.title|title }}
+                            </h3>
+                            <div class="post-date post-info-date">
+                                {{ related_post.pub_date|date:"d F Y"}}
+                            </div>
+                        </div>
+                    </a>
+                    {% else %}
+                    <a href="{{ related_post.get_absolute_url }}" class="other-posts-slider-item without-bg">
+                        <div class="other-post-info">
+                            <div class="post-tags">
+                                {% for related_post_tag in related_post.tags.all %}
+                                <div class="tag">{{related_post_tag}}</div>
+                                {% endfor %}
+                            </div>
+                            <h3 class="post-title">
+                                {{ related_post.title|title }}
+                            </h3>
+                            <div class="post-excerption">
+                                {{ related_post.excerpt }}
+                            </div>
+                            <div class="post-date post-info-date">
+                                {{ related_post.pub_date|date:"d F Y"}}
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock contents %}

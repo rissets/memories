@@ -1,0 +1,192 @@
+// out: ../accordion.css, compress: false
+
+/*
+Developed by helloDigi
+https://hellodigi.ru/
+*/
+
+@import "variables";
+
+.accordion-block {
+    margin: 30px 0 30px;
+    
+    &.with-border {
+        .accordion-item {
+            border: 0;
+            border-bottom: 1px solid #DCDEE1;
+            background: none;
+            border-radius: 0;
+            
+            .accordion-item-title {
+                padding-left: 0;
+                padding-right: 48px;
+                
+                &:before {
+                    right: 0;
+                }
+            }
+            
+            .accordion-item-content {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.accordion-item {
+    background: @light-child;
+    border-radius: 4px;
+    border: 1px solid @light-child;
+    .transition;
+    margin-bottom: 10px;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    &.opened {
+        background: none;
+        border-color: #DCDEE1;
+        
+        .accordion-item-title {
+            &:before {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    
+    &-title {
+        font-size: 19px;
+        .Medium;
+        padding: 20px 74px 20px 26px;
+        line-height: 25px;
+        position: relative;
+        .pointer;
+        
+        &:before {
+            width: 12px;
+            height: 8px;
+            background: url(../img/accordion-arrow.svg) center center no-repeat;
+            background-size: contain;
+            position: absolute;
+            content: '';
+            right: 25px;
+            top: 50%;
+            margin-top: -4px;
+            .transition;
+        }
+        
+        &.flex {
+            display: flex;
+            justify-content: space-between;
+            
+            .time {
+                margin-left: 30px;
+            }
+        }
+    }
+    
+    &-content {
+        display: none;
+        font-size: 14px;
+        line-height: 22px;
+        color: #8E8E8E;
+        padding: 0 26px 26px 26px;
+        
+        p {
+            font-size: inherit;
+            line-height: inherit;
+            margin: 0;
+            margin-bottom: 10px;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        ul, ol {
+            
+            &.checklist-ul {
+                li {
+                    &:before {
+                        top: 2px;
+                    }
+                }
+            }
+            li {
+                font-size: 14px;
+                line-height: 22px;
+                
+                &:before {
+                    width: 6px;
+                    height: 6px;
+                    left: 7px;
+                    top: 9px;
+                }
+            }
+        }
+        
+        ol {
+            padding-left: 23px;
+            
+            li::marker {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+.dark {
+    .accordion-item {
+        background: @dark-child;
+        border-color: @dark-child;
+    }
+    
+    .accordion-item-title {
+        &:before {
+            background-image: url(../img/accordion-arrow-white.svg);
+        }
+    }
+    
+    .accordion-block.with-border .accordion-item {
+        border-color: #3c3c3c;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .accordion-block {
+        margin: 15px 0;
+    }
+    
+    .accordion-item-title.flex {
+        flex-direction: column;
+    }
+    
+    .accordion-item-title.flex .time {
+        margin-left: 0;
+        color: #8E8E8E;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .accordion-item-title {
+        font-size: 17px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .accordion-item-title {
+        padding: 18px 50px 18px 18px;
+        
+        &:before {
+            right: 20px;
+        }
+    }
+    
+    .accordion-item-content {
+        padding: 0 18px 18px;
+    }
+}

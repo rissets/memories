@@ -1,0 +1,30 @@
+<form enctype="multipart/form-data" method="post" action="/newsletter/myblog/subscribe/">
+{% csrf_token %}
+  <div class="form">
+    <div class="form-fields">
+      <div class="input-wrap">
+        <input type="text" name="name_field" maxlength="30" id="id_name_field" class="input" placeholder="Name*" />
+      </div>
+      <div class="input-wrap">
+        <input type="email" name="email_field" required="" id="id_email_field" class="input" placeholder="Email*" />
+      </div>
+      <button id="id_submit" name="submit" value="Subscribe" type="submit" class="btn submit-btn">
+        <span>Subscribe</span>
+      </button>
+    </div>
+    {% comment %} <div class="agreement">
+      <input
+        type="checkbox"
+        class="agreement-checkbox"
+        id="agreeement-1"
+      />
+      <label for="agreeement-1" class="agreement-label">
+        <span>
+          By checking this box, you confirm that you have read and are
+          agreeing to our terms of use regarding the storage of the data
+          submitted through this form.
+        </span>
+      </label>
+    </div> {% endcomment %} 
+  </div>
+</form>

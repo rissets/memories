@@ -1,0 +1,98 @@
+.search-box {
+    box-sizing: border-box;
+    position: relative;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, .2);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box.active {
+    width: 350px;
+}
+
+@media screen and (max-width: 720px) {
+    .search-box.active {
+        width: 90%;
+    }
+}
+
+.search-box form input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    outline: none;
+    /* padding: 0 60px 0 20px; */
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box form input.active {
+    opacity: 1;
+    padding: 7px 0px 7px 10px; 
+}
+
+.search-box form input::placeholder {
+    color: #a6a6a6;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    /* right: -1px; */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 35px;
+    width: 35px;
+    background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    color: #664AFF;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box .search-icon.active {
+    right: -1px;
+    height: 35px;
+    line-height: 35px;
+    width: 35px;
+    font-size: 18px;
+    background: #664AFF;
+    color: #fff;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.search-box .cancel-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box .cancel-icon.active {
+    right: -20px;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.search-box .search-data {
+    text-align: center;
+    /* padding-top: 7px; */
+    color: #fff;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+.search-box .search-data.active {
+    display: none;
+}
