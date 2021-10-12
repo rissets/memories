@@ -50,7 +50,7 @@ THIRD_PARTY_APPS = [
     #   'captcha'
 
     # deploy
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS + THIRD_PARTY_APPS
@@ -70,7 +70,7 @@ BUILT_IN_MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 
     # deploy
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 THIRD_PARTY_MIDDLEWARE = []
@@ -163,10 +163,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/"static", ]
-STATIC_ROOT = (BASE_DIR/'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -174,9 +177,10 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_ENABLED = True
+# COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
 COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
+
 
 
 # STORAGES
@@ -288,5 +292,5 @@ META_DEFAULT_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
 META_SITE_DOMAIN = 'localhost'
 META_USE_SITES = False
 
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())

@@ -39,7 +39,4 @@ urlpatterns += i18n_patterns(
     path('', include('pwa.urls')),
     path('', include('blog.urls'), name='blog'),
     prefix_default_language=False,
-)
-
-if settings.DEBUG is True:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
