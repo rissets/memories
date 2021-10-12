@@ -6,7 +6,7 @@ from decouple import config
 django_heroku.settings(locals())
 DEBUG = config('DEBUG_VALUE')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memoriesrisset.herokuapp.com', 'memories.risset.me' ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memories-risset.herokuapp.com', 'memories.risset.me' ]
 
 PRODUCTION_APPS = ['whitenoise.runserver_nostatic']
 
