@@ -3,7 +3,8 @@ from pathlib import Path
 
 from blog.utils import user_directory_path
 from django.utils.translation import gettext_lazy as _
-from manage import get_env_variable
+
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -12,7 +13,7 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static', 'serviceworker.js')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # Application definition
 DJANGO_APPS = [
@@ -180,7 +181,7 @@ COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
 
 # STORAGES
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = get_env_variable("DROPBOX_OAUTH2_TOKEN")
+DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
 DROPBOX_ROOT_PATH = '/memories/media/'
 
 MEDIA_URL = DROPBOX_ROOT_PATH
@@ -260,10 +261,10 @@ LOGOUT_REDIRECT_URL = 'accounts:sign-out'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = get_env_variable("DEFAULT_FROM_EMAIL")
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
 # NEWSLETTER
 NEWSLETTER_CONFIRM_EMAIL = True
@@ -276,8 +277,8 @@ NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
 NEWSLETTER_EMAIL_DELAY = 0.1
 
 # RECAPTCHA
-RECAPTCHA_PUBLIC_KEY = get_env_variable("RECAPTCHA_PUBLIC_KEY")
-RECAPTCHA_PRIVATE_KEY = get_env_variable("RECAPTCHA_PRIVATE_KEY")
+RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
 
 
 # META
