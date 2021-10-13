@@ -9,11 +9,11 @@ DEBUG = config("DEBUG_VALUE", "False") == "True"
 
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", 'localhost,127.0.0.1').split(",")
 
-PRODUCTION_APPS = ['whitenoise.runserver_nostatic']
+# PRODUCTION_APPS = ['whitenoise.runserver_nostatic']
 
-DEVELOPMENT_MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
+# DEVELOPMENT_MIDDLEWARE = [
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+# ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
@@ -23,7 +23,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 DEVELOPMENT_MODE = config("DEVELOPMENT_MODE", "False") == "True"
 
@@ -45,5 +45,5 @@ elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
 # DATABASES['default'].update(db_from_env)
 
 COMPRESS_ENABLED = False
-COMPRESS_OFFLINE = False
+COMPRESS_OFFLINE = True
 
