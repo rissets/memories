@@ -13,7 +13,8 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static', 'serviceworker.js')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+from django.core.management.utils import get_random_secret_key
+SECRET_KEY = config('SECRET_KEY', get_random_secret_key())
 
 # Application definition
 DJANGO_APPS = [
