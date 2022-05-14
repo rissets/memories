@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/524a460f-f71e-477a-b46c-3d26ac876135/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/memories-django",
+    "appService.deploySubpath": "."
+}
