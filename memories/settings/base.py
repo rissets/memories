@@ -13,7 +13,6 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static', 'serviceworker.js')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
 
 # Application definition
 DJANGO_APPS = [
@@ -42,12 +41,13 @@ THIRD_PARTY_APPS = [
     'accounts',
     'django_extensions',
     'newsletter',
+    # 'storages',
 
     # portfolio dependent
     'compressor',
     'meta',
     'modeltranslation',
-    #   'captcha'
+    'captcha'
 ]
 
 PRODUCTION_APPS = []
@@ -126,9 +126,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-CSRF_COOKIE_SECURE = True
-CSRF_USE_SESSIONS = True
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 # LANGUAGE_CODE = 'id'
@@ -137,14 +134,16 @@ CSRF_USE_SESSIONS = True
 LOCALE_PATHS = (BASE_DIR / 'locale',)
 
 LANGUAGES = (
-    ('id', _('Indonesia')),
+    ('id', _('Indonesian')),
     ('en', _('English')),
 )
 
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'id'
 DEFAULT_LANGUAGE = 'id'
 
-MODELTRANSLATION_LANGUAGES = ('en', 'id')
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'id'
+
+
+MODELTRANSLATION_LANGUAGES = ('id', 'en')
 
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'id'
 
@@ -154,32 +153,23 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-    'compressor.finders.CompressorFinder',
-)
-# COMPRESS_ENABLED = True
-COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
-COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
-
 
 # STORAGES
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
-DROPBOX_ROOT_PATH = '/memories/media/'
+STATIC_URL = "/static/"
+STATIC_ROOT = (BASE_DIR/"static")
+STATICFILES_DIRS = [BASE_DIR/"staticfiles",]
 
-MEDIA_URL = DROPBOX_ROOT_PATH
+# STORAGES
+
 # MEDIA_ROOT = DROPBOX_ROOT_PATH
 # MEDIA_URL = "/media/"
-MEDIA_ROOT = (BASE_DIR/'media')
+# MEDIA_ROOT = (BASE_DIR/'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -239,7 +229,7 @@ PWA_APP_SPLASH_SCREEN = [
     }
 ]
 PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'en'
+PWA_APP_LANG = 'id'
 
 
 # LOGIN
@@ -249,14 +239,8 @@ LOGIN_URL = 'accounts:sign-in'
 LOGOUT_REDIRECT_URL = 'accounts:sign-out'
 
 # EMAIL
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # NEWSLETTER
 NEWSLETTER_CONFIRM_EMAIL = True
@@ -268,15 +252,10 @@ NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
 # Amount of seconds to wait between each email. Here 100ms is used.
 NEWSLETTER_EMAIL_DELAY = 0.1
 
-# RECAPTCHA
-RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_PUBLIC_KEY")
-RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
-
 
 # META
 META_SITE_PROTOCOL = 'https'
-META_INCLUDE_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
-META_DEFAULT_KEYWORDS = ['danang haris setiawan', 'portfolio', 'resume']
+META_INCLUDE_KEYWORDS = ['danang haris setiawan', 'portfolio', 'journal', 'wiki engineering']
+META_DEFAULT_KEYWORDS = ['danang haris setiawan', 'portfolio', 'journal']
 META_SITE_DOMAIN = 'localhost'
 META_USE_SITES = False
-

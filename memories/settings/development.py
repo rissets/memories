@@ -1,11 +1,12 @@
 from .base import *
+SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memoriesrisset.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = (BASE_DIR/"media")
+MEDIA_URL = "/media/"
+MEDIA_ROOT = (BASE_DIR/"media")
 
 
 DATABASES = {
@@ -15,17 +16,51 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'risset',
-#         'USER': 'rissetuser',
-#         'PASSWORD': get_env_variable('PASSWORD_DB'),
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+CSRF_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = True
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
+COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
+
+# RECAPTCHA
+RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = config("EMAIL_PORT")
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
+
+
+# MEDIA_URL = '/memoriesMe/media/' 
+# DROPBOX_ROOT_PATH = MEDIA_URL
+# MEDIA_ROOT = (BASE_DIR/'media')
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST': config("DB_HOST"),
+        'PORT': config("DB_PORT"),
+    }
+}
+
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'].update(db_from_env)
