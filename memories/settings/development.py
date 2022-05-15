@@ -13,8 +13,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = (BASE_DIR/"staticfiles")
 
 
-PRODUCTION_APPS = ["whitenoise.runserver_nostatic",]
-
 MIDDLEWARE = [                                                                   
     'django.middleware.security.SecurityMiddleware',
 # Add whitenoise middleware after the security middleware                             
@@ -51,7 +49,7 @@ DATABASES = {
 CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = False
 
 STATICFILES_FINDERS = (

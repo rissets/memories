@@ -10,7 +10,7 @@ CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_
 
 # STORAGES
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATIC_ROOT = (BASE_DIR/"static")
+STATIC_ROOT = (BASE_DIR/"staticfiles")
 
 MIDDLEWARE = [                                                                   
     'django.middleware.security.SecurityMiddleware',
@@ -48,7 +48,7 @@ DATABASES = {
 CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = False
 
 STATICFILES_FINDERS = (
