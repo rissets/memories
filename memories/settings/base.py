@@ -58,7 +58,7 @@ SITE_ID = 1
 
 BUILT_IN_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -163,14 +163,12 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
+
+
 # STORAGES
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATIC_ROOT = (BASE_DIR/"static")
 STATICFILES_DIRS = [BASE_DIR/"static"]
 STATIC_URL = "/static/"
-
-# STORAGES
 
 # MEDIA_ROOT = DROPBOX_ROOT_PATH
 # MEDIA_URL = "/media/"

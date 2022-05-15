@@ -3,6 +3,8 @@
 import os
 import sys
 
+from dotenv import load_dotenv
+
 from django.core.exceptions import ImproperlyConfigured
 
 
@@ -16,8 +18,17 @@ def get_env_variable(var_name):
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                          'memories.settings.development')
+    
+    if not 'WEBSITE_HOSTNAME' in os.environ:
+        print("Loading environment variables for .env file")
+        load_dotenv('./.env')
+        settings_module = "memories.settings.development"
+    else:
+        settings_module = "memories.settings.production" 
+    # When running on Azure App Service you should use the production settings.
+    
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+        
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

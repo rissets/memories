@@ -12,7 +12,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'memories.settings')
+settings_module = 'memories.settings.production' if 'WEBSITE_HOSTNAME' in os.environ else 'memories.settings.development'
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
 # application = WhiteNoise(application)

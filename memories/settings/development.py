@@ -4,28 +4,31 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memories-django.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
-# ALLOWED_HOSTS = [config('WEBSITE_HOSTNAME')] if 'WEBSITE_HOSTNAME' in os.environ else []
-# CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
+# STORAGES
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = (BASE_DIR/"staticfiles")
+
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = (BASE_DIR/"media")
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
+
+COMPRESS_ENABLED = False
+COMPRESS_OFFLINE = False
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -33,7 +36,7 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_ENABLED = True
+# COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
 COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
 
@@ -57,16 +60,16 @@ DEFAULT_FROM_EMAIL="Memories"
 # DROPBOX_ROOT_PATH = MEDIA_URL
 # MEDIA_ROOT = (BASE_DIR/'media')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("DBNAME"),
-        'USER': config("DBUSER"),
-        'PASSWORD': config("DBPASS"),
-        'HOST': config("DBHOST"),
-        'PORT': "",
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config("DBNAME"),
+#         'USER': config("DBUSER"),
+#         'PASSWORD': config("DBPASS"),
+#         'HOST': config("DBHOST"),
+#         'PORT': "",
+#     }
+# }
 
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=600)
