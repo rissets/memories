@@ -6,6 +6,8 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 
+from django.views.static import serve
+
 from . import views
 
 handler403 = views.error_403
@@ -39,4 +41,9 @@ urlpatterns += i18n_patterns(
     path('', include('pwa.urls')),
     path('', include('blog.urls'), name='blog'),
     # prefix_default_language=False,
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+) 
+
+if settings.DEBUG == True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

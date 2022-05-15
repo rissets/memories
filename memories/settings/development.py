@@ -6,16 +6,22 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memories-django.azurewebsites.net']
 
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = (BASE_DIR/"media")
+# ALLOWED_HOSTS = [config('WEBSITE_HOSTNAME')] if 'WEBSITE_HOSTNAME' in os.environ else []
+# CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = (BASE_DIR/"media")
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 CSRF_COOKIE_SECURE = True
@@ -43,24 +49,24 @@ EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_PORT=587
 DEFAULT_FROM_EMAIL="Memories"
 
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
+# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
 
 
-MEDIA_URL = '/memoriesMe/media/' 
-DROPBOX_ROOT_PATH = MEDIA_URL
-MEDIA_ROOT = (BASE_DIR/'media')
+# MEDIA_URL = '/memoriesMe/media/' 
+# DROPBOX_ROOT_PATH = MEDIA_URL
+# MEDIA_ROOT = (BASE_DIR/'media')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("DBNAME"),
-        'USER': config("DBUSER"),
-        'PASSWORD': config("DBPASS"),
-        'HOST': config("DBHOST"),
-        'PORT': "",
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config("DBNAME"),
+#         'USER': config("DBUSER"),
+#         'PASSWORD': config("DBPASS"),
+#         'HOST': config("DBHOST"),
+#         'PORT': "",
+#     }
+# }
 
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=600)

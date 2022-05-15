@@ -58,6 +58,7 @@ SITE_ID = 1
 
 BUILT_IN_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,7 +71,7 @@ BUILT_IN_MIDDLEWARE = [
 ]
 
 THIRD_PARTY_MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 DEVELOPMENT_MIDDLEWARE = []
 
@@ -163,10 +164,11 @@ USE_TZ = False
 
 
 # STORAGES
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATIC_ROOT = (BASE_DIR/"static")
+STATICFILES_DIRS = [BASE_DIR/"static"]
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = (BASE_DIR/"static")
-STATICFILES_DIRS = [BASE_DIR/"staticfiles",]
 
 # STORAGES
 
