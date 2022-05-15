@@ -137,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # STORAGES
 
-STATICFILES_DIRS = [BASE_DIR/"static"]
+# STATICFILES_DIRS = [BASE_DIR/"staticfiles",]
 STATIC_URL = "/static/"
 
 
