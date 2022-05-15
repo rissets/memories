@@ -48,8 +48,8 @@ DATABASES = {
 CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 
-# COMPRESS_ENABLED = False
-# COMPRESS_OFFLINE = False
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = False
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

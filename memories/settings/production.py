@@ -8,9 +8,7 @@ DEBUG = False
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else ['*']
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else ["*"]
 
-# STORAGES
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATIC_ROOT = (BASE_DIR/"staticfiles")
+
 
 MIDDLEWARE = [                                                                   
     'django.middleware.security.SecurityMiddleware',
@@ -30,7 +28,9 @@ MIDDLEWARE = [
 #     'whitenoise.middleware.WhiteNoiseMiddleware',
 # ]
 
-
+# STORAGES
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATIC_ROOT = (BASE_DIR/"staticfiles")
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = (BASE_DIR/"media")
@@ -49,7 +49,7 @@ CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
