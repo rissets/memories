@@ -42,7 +42,7 @@ urlpatterns += i18n_patterns(
     path('', include('blog.urls'), name='blog'),
     # prefix_default_language=False,
     
-) 
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG == True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

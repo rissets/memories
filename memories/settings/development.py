@@ -10,7 +10,7 @@ CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_
 
 # STORAGES
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATIC_ROOT = (BASE_DIR/"staticfiles")
+STATIC_ROOT = (BASE_DIR/"static")
 
 MIDDLEWARE = [                                                                   
     'django.middleware.security.SecurityMiddleware',
@@ -49,7 +49,7 @@ CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = False
+# COMPRESS_OFFLINE = True
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -73,13 +73,13 @@ EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_PORT=587
 DEFAULT_FROM_EMAIL="Memories"
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
 
 
-# MEDIA_URL = '/memoriesMe/media/' 
-# DROPBOX_ROOT_PATH = MEDIA_URL
-# MEDIA_ROOT = (BASE_DIR/'media')
+MEDIA_URL = '/memoriesMe/media/' 
+DROPBOX_ROOT_PATH = MEDIA_URL
+MEDIA_ROOT = (BASE_DIR/'media')
 
 # DATABASES = {
 #     'default': {
