@@ -133,11 +133,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 # LANGUAGE_CODE = 'id'
 
+# STORAGES
+
+STATICFILES_DIRS = [BASE_DIR/"static"]
+STATIC_URL = "/static/"
+
 
 LOCALE_PATHS = (BASE_DIR / 'locale',)
 
 LANGUAGES = (
-    ('id', _('Indonesian')),
+    ('id', _('Indonesia')),
     ('en', _('English')),
 )
 
@@ -156,7 +161,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -165,10 +170,7 @@ USE_TZ = False
 
 
 
-# STORAGES
 
-STATICFILES_DIRS = [BASE_DIR/"static"]
-STATIC_URL = "/static/"
 
 # MEDIA_ROOT = DROPBOX_ROOT_PATH
 # MEDIA_URL = "/media/"

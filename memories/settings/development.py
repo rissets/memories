@@ -4,11 +4,31 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else ['*']
+CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else ["*"]
 
 # STORAGES
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = (BASE_DIR/"staticfiles")
+
+MIDDLEWARE = [                                                                   
+    'django.middleware.security.SecurityMiddleware',
+# Add whitenoise middleware after the security middleware                             
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware', 
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',                   
+]
+
+# DEVELOPMENT_MIDDLEWARE = [
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+# ]
 
 
 
@@ -24,11 +44,12 @@ DATABASES = {
 }
 
 
+
 CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True
 
-COMPRESS_ENABLED = False
-COMPRESS_OFFLINE = False
+# COMPRESS_ENABLED = False
+# COMPRESS_OFFLINE = False
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
