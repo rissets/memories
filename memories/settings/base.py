@@ -42,6 +42,8 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'newsletter',
     # 'storages',
+    
+    "whitenoise.runserver_nostatic",
 
     # portfolio dependent
     'compressor',
@@ -135,25 +137,25 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # STORAGES
 
-# STATICFILES_DIRS = [BASE_DIR/"static"]
+STATICFILES_DIRS = [BASE_DIR/"static"]
 STATIC_URL = "/static/"
 
 
 LOCALE_PATHS = (BASE_DIR / 'locale',)
 
 LANGUAGES = (
-    ('id', _('Indonesia')),
+    ('id', _('Indonesian')),
     ('en', _('English')),
 )
 
 DEFAULT_LANGUAGE = 'id'
-
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'id'
-
 
 MODELTRANSLATION_LANGUAGES = ('id', 'en')
 
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'id'
+
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('id', 'en')
 
 TIME_ZONE = 'Asia/Jakarta'
 

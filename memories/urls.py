@@ -40,10 +40,10 @@ urlpatterns += i18n_patterns(
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('pwa.urls')),
     path('', include('blog.urls'), name='blog'),
-    # prefix_default_language=False,
+    prefix_default_language=False,
     
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG == True:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# if settings.DEBUG == True:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
