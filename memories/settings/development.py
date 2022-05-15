@@ -6,8 +6,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = (BASE_DIR/"media")
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = (BASE_DIR/"media")
 
 
 DATABASES = {
@@ -43,13 +43,13 @@ EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_PORT=587
 DEFAULT_FROM_EMAIL="Memories"
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
 
 
-# MEDIA_URL = '/memoriesMe/media/' 
-# DROPBOX_ROOT_PATH = MEDIA_URL
-# MEDIA_ROOT = (BASE_DIR/'media')
+MEDIA_URL = '/memoriesMe/media/' 
+DROPBOX_ROOT_PATH = MEDIA_URL
+MEDIA_ROOT = (BASE_DIR/'media')
 
 DATABASES = {
     'default': {
