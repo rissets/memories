@@ -69,7 +69,9 @@ BUILT_IN_MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-THIRD_PARTY_MIDDLEWARE = []
+THIRD_PARTY_MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
 DEVELOPMENT_MIDDLEWARE = []
 
 MIDDLEWARE = BUILT_IN_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + DEVELOPMENT_MIDDLEWARE
@@ -162,6 +164,7 @@ USE_TZ = False
 
 # STORAGES
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = (BASE_DIR/"static")
 STATICFILES_DIRS = [BASE_DIR/"staticfiles",]
 

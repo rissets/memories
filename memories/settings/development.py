@@ -2,20 +2,20 @@ from .base import *
 import os
 SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'memories-django.azurewebsites.net']
 
 # MEDIA_URL = "/media/"
 # MEDIA_ROOT = (BASE_DIR/"media")
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 CSRF_COOKIE_SECURE = True
