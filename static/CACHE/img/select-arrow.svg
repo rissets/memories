@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="13.311" height="7.61" viewBox="0 0 13.311 7.61">
-  <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M2.294,6.654,7.33,1.621A.951.951,0,0,0,5.983.278L.277,5.98A.949.949,0,0,0,.249,7.292l5.73,5.742A.951.951,0,0,0,7.326,11.69Z" transform="translate(0 7.61) rotate(-90)" fill="#1d1d1d"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="13.311" height="7.61" viewBox="0 0 13.311 7.61"><path id="Icon_ionic-ios-arrow-back" fill="#1d1d1d" d="M2.294,6.654,7.33,1.621A.951.951,0,0,0,5.983.278L.277,5.98A.949.949,0,0,0,.249,7.292l5.73,5.742A.951.951,0,0,0,7.326,11.69Z" data-name="Icon ionic-ios-arrow-back" transform="translate(0 7.61) rotate(-90)"/></svg>
