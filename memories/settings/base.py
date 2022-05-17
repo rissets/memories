@@ -139,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # STATICFILES_DIRS = [BASE_DIR/"staticfiles",]
 STATIC_URL = "/static/"
-
+STATIC_ROOT = (BASE_DIR/"static")
 
 LOCALE_PATHS = (BASE_DIR / 'locale',)
 
