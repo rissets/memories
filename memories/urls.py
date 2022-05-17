@@ -7,6 +7,7 @@ from django.urls import include, path
 from django.views.generic.base import TemplateView
 
 from django.views.static import serve
+from django.conf.urls import url
 
 from . import views
 
@@ -28,6 +29,8 @@ urlpatterns = [
          name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", TemplateView.as_view(
         template_name="robots.txt", content_type="text/plain")),
+    url(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    url(r'static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 ]
 
 urlpatterns += i18n_patterns(
@@ -42,7 +45,7 @@ urlpatterns += i18n_patterns(
     path('', include('blog.urls'), name='blog'),
     prefix_default_language=False,
     
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) 
 
 # if settings.DEBUG == True:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

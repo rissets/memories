@@ -10,7 +10,10 @@ CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_
 
 # STORAGES
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATIC_ROOT = (BASE_DIR/"static")
+if DEBUG:
+    STATICFILES_DIRS = (BASE_DIR/"static")
+else:
+    STATIC_ROOT = (BASE_DIR/"static")
 
 
 MIDDLEWARE = [                                                                   
