@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="23" height="5" viewBox="0 0 23 5">
-  <g id="Сгруппировать_117" data-name="Сгруппировать 117" transform="translate(-78 -283)">
-    <circle id="Эллипс_14" data-name="Эллипс 14" cx="2.5" cy="2.5" r="2.5" transform="translate(78 283)" fill="#747b88"/>
-    <circle id="Эллипс_15" data-name="Эллипс 15" cx="2.5" cy="2.5" r="2.5" transform="translate(87 283)" fill="#747b88"/>
-    <circle id="Эллипс_16" data-name="Эллипс 16" cx="2.5" cy="2.5" r="2.5" transform="translate(96 283)" fill="#747b88"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="5" viewBox="0 0 23 5"><g id="Сгруппировать_117" data-name="Сгруппировать 117" transform="translate(-78 -283)"><circle id="Эллипс_14" cx="2.5" cy="2.5" r="2.5" fill="#747b88" data-name="Эллипс 14" transform="translate(78 283)"/><circle id="Эллипс_15" cx="2.5" cy="2.5" r="2.5" fill="#747b88" data-name="Эллипс 15" transform="translate(87 283)"/><circle id="Эллипс_16" cx="2.5" cy="2.5" r="2.5" fill="#747b88" data-name="Эллипс 16" transform="translate(96 283)"/></g></svg>

@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="21.333" viewBox="0 0 16 21.333">
-  <path id="Icon_awesome-map-marker-alt" data-name="Icon awesome-map-marker-alt" d="M7.178,20.9C1.124,12.126,0,11.226,0,8A8,8,0,0,1,16,8c0,3.226-1.124,4.126-7.178,12.9a1,1,0,0,1-1.644,0ZM8,11.333A3.333,3.333,0,1,0,4.667,8,3.333,3.333,0,0,0,8,11.333Z" fill="#fff"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="21.333" viewBox="0 0 16 21.333"><path id="Icon_awesome-map-marker-alt" fill="#fff" d="M7.178,20.9C1.124,12.126,0,11.226,0,8A8,8,0,0,1,16,8c0,3.226-1.124,4.126-7.178,12.9a1,1,0,0,1-1.644,0ZM8,11.333A3.333,3.333,0,1,0,4.667,8,3.333,3.333,0,0,0,8,11.333Z" data-name="Icon awesome-map-marker-alt"/></svg>
