@@ -67,10 +67,10 @@ COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
 COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
 
 # RECAPTCHA
-RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_PUBLIC_KEY")
-RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
+# RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_PUBLIC_KEY")
+# RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")

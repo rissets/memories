@@ -49,7 +49,7 @@ THIRD_PARTY_APPS = [
     'compressor',
     'meta',
     'modeltranslation',
-    'captcha'
+    # 'captcha'
 ]
 
 PRODUCTION_APPS = []
