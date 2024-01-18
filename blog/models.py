@@ -20,10 +20,10 @@ class Category(models.Model):
     name = models.CharField(max_length=110)
     description = models.TextField(blank=True)
 
-    def save(self):
+    def save(self, *args, **kwargs):
         name = self.name.lower()
         self.name = name
-        super().save()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -32,7 +32,7 @@ class Category(models.Model):
         return reverse("blog:category", kwargs={"category": self.name})
 
 class Post(ModelMeta, models.Model):
-
+    blog_id = models.CharField(max_length=100, null=False, blank=False)
     title = models.CharField(max_length=250,null=False, blank=False)
     slug = models.SlugField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
@@ -41,10 +41,12 @@ class Post(ModelMeta, models.Model):
     image_credit = models.CharField(max_length=250, null=True, blank=True)
     excerpt = models.TextField(blank=True)
     content = RichTextUploadingField(config_name='default')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+
     pub_date = models.DateTimeField(null=True, blank=True, default=timezone.now)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+
     favourites = models.ManyToManyField(User, related_name='favourite', default=None, blank=True)
     likes = models.ManyToManyField(User, related_name='like', blank=True, default=None)
     like_count = models.BigIntegerField(default="0")
@@ -52,6 +54,9 @@ class Post(ModelMeta, models.Model):
     views = models.PositiveIntegerField(default=0)
     count_words = models.CharField(max_length=50, default=0)
     read_time = models.CharField(max_length=50, default=0)
+
+    encodings = models.TextField(default=None, blank=True)
+    similarity_score = models.FloatField(default=0.0)
     deleted = models.BooleanField(default=False)
 
     class META:
@@ -65,7 +70,7 @@ class Post(ModelMeta, models.Model):
         self.slug = slugify(self.title, allow_unicode=True)
         self.count_words = count_words(self.content)
         self.read_time = read_time(self.content)
-        super(Post, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("blog:detail", kwargs={"slug": self.slug})
