@@ -16,7 +16,7 @@ from sklearn import metrics
 
 from .forms import CommentForm, PostSearchForm
 from .models import Category, Post
-from .utils import get_bert_embeddings, preprocess_text
+from .utils import get_similarity
 
 result = _("Error")
 message = _("There was an error, please try again!")
@@ -255,26 +255,9 @@ def post_search(request):
         query_text = q
 
         posts = Post.objects.all()
-        encodings = posts.values_list('encodings', flat=True)
-        # encodings = encodings.apply(lambda x: np.fromstring(x.strip('[]'), sep=' '))
-        encodings = [np.fromstring(x.strip('[]'), sep=' ') for x in encodings]
-
-        query_text = preprocess_text(query_text)
-        print(query_text)
-        query_encoding = get_bert_embeddings(query_text)
-
-        # similarity_score = encodings.apply(
-        #     lambda x: metrics.pairwise.cosine_similarity(x.reshape(1, -1), query_encoding.reshape(1, -1))[0][0])
-
-        similarity_scores = [
-            metrics.pairwise.cosine_similarity(encoding.reshape(1, -1), query_encoding.reshape(1, -1))[0][0]
-            for encoding in encodings
-        ]
-
-        results = list(zip(posts, similarity_scores))
-
-        # Sort the results based on similarity scores
-        results = sorted(results, key=lambda x: x[1], reverse=True)
+        
+        similarity_post_id = get_similarity(query_text)
+        results = posts.filter(blog_id__in=similarity_post_id)
 
 
     return render(request, 'blog/search.html', {'form':form,'q':q, 'results':results })

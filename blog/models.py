@@ -32,6 +32,7 @@ class Category(models.Model):
         return reverse("blog:category", kwargs={"category": self.name})
 
 class Post(ModelMeta, models.Model):
+    blog_id = models.CharField(max_length=100, null=False, blank=False)
     title = models.CharField(max_length=250,null=False, blank=False)
     slug = models.SlugField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT)

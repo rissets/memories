@@ -5,12 +5,14 @@ import re
 from sklearn import metrics
 from blog.models import Post, Category
 from django.contrib.auth.models import User
+from blog.models import Post
 
 
 df = pd.read_csv('models/output_dataset.csv')
 
 for index, row in df.iterrows():
     Post.objects.create(
+        blog_id=row['id'],
         title=row['title'],
         category=Category.objects.get_or_create(name=row['category'])[0],
         excerpt=row['abstract'],
