@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     date_hierarchy = 'pub_date'
     ordering = ['status', '-pub_date',]
-    readonly_fields = ('slug', 'views', 'count_words', 'read_time', 'likes', 'favourites', 'like_count', 'date_created', 'date_updated')
+    readonly_fields = ('slug', 'views', 'count_words', 'read_time', 'likes', 'favourites', 'like_count', 'date_created', 'date_updated', 'encodings')
     actions = ['activate']
 
     def activate(self, request, queryset):
