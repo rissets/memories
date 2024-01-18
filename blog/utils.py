@@ -6,11 +6,12 @@ import string
 from django.utils import html
 from django.utils.html import strip_tags
 
-import tensorflow as tf
-import tensorflow_hub as hub
-
 from sklearn import metrics
 import numpy as np
+
+import tensorflow as tf
+import tensorflow_hub as hub
+import tensorflow_text as text 
 
 
 def count_words(html_string):
@@ -75,6 +76,7 @@ def get_similarity(query_text):
     import pandas as pd
     df = pd.read_csv("models/output_dataset.csv")
     query_text = preprocess_text(query_text)
+    print(f"Query Text: {query_text}")
     query_encoding = get_bert_embeddings(query_text)
 
     df['encodings'] = df['encodings'].apply(lambda x: np.fromstring(x.strip('[]'), sep=' '))
