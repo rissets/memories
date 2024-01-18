@@ -1,0 +1,14 @@
+version: '3.11'
+
+services:
+
+  web:
+    restart: always
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code # Mount the current directory as /code (hot reload)
+    ports:
+        - "8000:8000"
+    environment:
+        - SECRET_KEY=secret

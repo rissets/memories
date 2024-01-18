@@ -220,32 +220,6 @@ class CategoryView(ListView, Meta):
 def post_search(request):
     form = PostSearchForm()
     q = ''
-    # c = ''
-    # results = []
-    # query = Q()
-    #
-    # if request.POST.get('action') == 'post':
-    #     search_string = str(request.POST.get('ss'))
-    #
-    #     if search_string is not None:
-    #         search_string = Post.objects.filter(title__contains=search_string)[:3]
-    #
-    #         data = serializers.serialize('json', list(search_string), fields=('id', 'title', 'slug'))
-    #
-    #         return JsonResponse({'search_string': data}, safe=False)
-    #
-    # if 'q' in request.GET:
-    #     form = PostSearchForm(request.GET)
-    #     if form.is_valid():
-    #         q = form.cleaned_data['q']
-    #         c = form.cleaned_data['c']
-    #
-    #         if c is not None:
-    #             query &= Q(category=c)
-    #         if q is not None:
-    #             query &= Q(title__contains=q)
-    #         # django api refrence
-    #         results = Post.objects.filter(query)
 
     if 'q' in request.GET:
         form = PostSearchForm(request.GET)
