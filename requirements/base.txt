@@ -18,4 +18,4 @@ django-pwa==1.0.10
 django-recaptcha==2.0.6
 django-taggit==1.5.1
 sorl-thumbnail==12.7.0
-sqlparse==0.4.2
+sqlparse==0.4.4
