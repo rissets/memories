@@ -36,6 +36,7 @@ THIRD_PARTY_APPS = [
     'taggit',
     'admin_honeypot',
     'ckeditor',
+    'ckeditor_uploader',
     'mptt',
     'pwa',
     'accounts',
@@ -49,7 +50,7 @@ THIRD_PARTY_APPS = [
     'compressor',
     'meta',
     'modeltranslation',
-    'captcha'
+    # 'captcha'
 ]
 
 PRODUCTION_APPS = []

@@ -11,9 +11,12 @@ from meta.views import Meta
 from taggit.models import Tag
 
 from memories.mixins import form_errors
+import numpy as np
+from sklearn import metrics
 
 from .forms import CommentForm, PostSearchForm
 from .models import Category, Post
+from .utils import get_similarity
 
 result = _("Error")
 message = _("There was an error, please try again!")
@@ -217,32 +220,20 @@ class CategoryView(ListView, Meta):
 def post_search(request):
     form = PostSearchForm()
     q = ''
-    c = ''
-    results = []
-    query = Q()
-
-    if request.POST.get('action') == 'post':
-        search_string = str(request.POST.get('ss'))
-
-        if search_string is not None:
-            search_string = Post.objects.filter(title__contains=search_string)[:3]
-
-            data = serializers.serialize('json', list(search_string), fields=('id', 'title', 'slug'))
-
-            return JsonResponse({'search_string': data}, safe=False)
 
     if 'q' in request.GET:
         form = PostSearchForm(request.GET)
         if form.is_valid():
             q = form.cleaned_data['q']
             c = form.cleaned_data['c']
-            
-            if c is not None:
-                query &= Q(category=c)
-            if q is not None:
-                query &= Q(title__contains=q)
-            # django api refrence
-            results = Post.objects.filter(query)
+        query_text = q
+
+        posts = Post.objects.all()
+        
+        similarity_post_id = get_similarity(query_text)
+        results = posts.filter(blog_id__in=similarity_post_id)
+
+
     return render(request, 'blog/search.html', {'form':form,'q':q, 'results':results })
 
 
