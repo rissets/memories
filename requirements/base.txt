@@ -2,7 +2,7 @@ asgiref==3.4.1
 certifi==2022.12.7
 chardet==4.0.0
 Django==3.2.19
-Pillow==9.0.1
+Pillow==10.3.0
 
 psycopg2-binary
 
